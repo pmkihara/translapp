@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :translation_service_id
+  belongs_to :user
+  belongs_to :translation_service
 end
