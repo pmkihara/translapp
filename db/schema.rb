@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_200009) do
+ActiveRecord::Schema.define(version: 2021_08_23_210828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,21 +18,23 @@ ActiveRecord::Schema.define(version: 2021_08_23_200009) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "translation_service_id", null: false
-    t.string "date"
-    t.integer "final_cost"
+    t.string "status", null: false
+    t.string "date", null: false
+    t.float "final_cost", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "active"
     t.index ["translation_service_id"], name: "index_orders_on_translation_service_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "translation_services", force: :cascade do |t|
     t.text "location"
-    t.boolean "remote"
-    t.string "original_language"
-    t.string "final_language"
-    t.float "price_per_hour"
+    t.boolean "remote", default: false, null: false
+    t.string "original_language", null: false
+    t.string "final_language", null: false
+    t.text "description"
+    t.float "price_per_hour", default: 0.0, null: false
+    t.boolean "active", default: true, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_200009) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "contact"
+    t.boolean "active"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
