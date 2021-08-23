@@ -5,7 +5,6 @@ class CreateTranslationServices < ActiveRecord::Migration[6.0]
       t.boolean :remote
       t.string :original_language
       t.string :final_language
-      t.boolean :availability
       t.float :price_per_hour
       t.references :user, null: false, foreign_key: true
 
