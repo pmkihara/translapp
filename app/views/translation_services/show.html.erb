@@ -59,11 +59,11 @@
       width: 180px !important;
   }
   .col1 {
-  
+
     width: 600px !important;
-  
+
     min-width: 400px !important;
-  
+
   }
   @media only screen and (max-width: 600px){
   .container {
@@ -104,11 +104,11 @@
       width: 100% !important;
   }
   .col1 {
-  
+
     width: 600px !important;
-  
+
     min-width: 400px !important;
-  
+
   }
   .article-image {
       width: 100% !important;
@@ -148,11 +148,11 @@
   .mobile-column-horizontal-c {
       padding-top: 10px !important;
       }
-  
+
   .mobile-opt-col2 {
-  
+
       width: 100% !important;
-  
+
       min-width: 100% !important;
   }
   img {
@@ -296,6 +296,7 @@
                 <!-- end BLOCK - block 2 columns / phone -->
                 <%= link_to 'Edit Service', edit_translation_service_path(@translation_service), class: 'btn btn-outline-primary btn-lg mb-3 ml-4' %>
                 <%= link_to 'Voltar', translation_services_path, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
+                <%= link_to 'Comprar', translation_service_orders_path(@translation_service), method: :post, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
               </td>
             </tr>
           </tbody>
