@@ -1,8 +1,8 @@
 class TranslationServicesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @translation_services = TranslationService.all
+    @translation_services = TranslationService.where(active: true)
   end
 
   def show
@@ -30,9 +30,19 @@ class TranslationServicesController < ApplicationController
   def update
     @translation_service = TranslationService.find(params[:id])
     if @translation_service.update(translation_service_params)
-      redirect_to translation_service_path
+      redirect_to translation_service_path(@translation_service)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @translation_service = TranslationService.find(params[:id])
+
+    if @translation_service.user == current_user
+      @translation_service.active = false
+      @translation_service.save
+      redirect_to translation_services_path
     end
   end
 
