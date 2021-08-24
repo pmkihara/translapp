@@ -1,16 +1,12 @@
-<div class="container">
+<div class="container my-5">
 
   <div class="row">
 
     <% @translation_services.each do |translation_service| %>
 
-      <% translation_service.description = "Lorem ipsum dolor asit amet"  %>
-      <% translation_service.price_per_hour = 25.0  %>
-      <% translation_service.remote = true  %>
-
       <div class="col-4">
 
-        <div class="card-trip">
+        <div class="card-trip my-3">
           <%= link_to translation_service_path(translation_service) do %>
             <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg');height: 200px;background-size: cover;padding: 10px;">
               <% if translation_service.remote %>

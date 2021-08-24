@@ -20,6 +20,7 @@ puts "...."
   )
   user_translator.save!
 
+  name_fake = Faker::Name.first_name
   user_client = User.new(
     { name: name_fake,
       email: Faker::Internet.free_email(name: name_fake),
@@ -33,6 +34,9 @@ puts "...."
     location: Faker::Address.country,
     original_language: Faker::Nation.language,
     final_language: Faker::Nation.language,
+    description: Faker::Lorem.sentence,
+    price_per_hour: Faker::Number.between(from: 20.0, to: 150.0).round(2),
+    remote: Faker::Boolean.boolean,
     user_id: user_translator.id
   )
   services.save!
