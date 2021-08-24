@@ -9,6 +9,15 @@ class TranslationServicesController < ApplicationController
     @translation_service = TranslationService.new
   end
 
+  def create
+    @translation_service = TranslationService.new(translation_service_params)
+    if @translation_service.save
+      redirect_to translation_service_path(@translation_service)
+    else
+      render :new
+    end
+  end
+
   def edit
     @translation_service = TranslationService.find(params[:id])
   end
