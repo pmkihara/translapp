@@ -1,6 +1,6 @@
 .banner {
   background-size: cover;
-  background-position: center;
+  background-position: top;
   display: flex;
   align-items: center;
   height: 70vh;
@@ -20,4 +20,8 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-text {
+  width: 40%;
 }
