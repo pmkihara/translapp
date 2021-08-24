@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.where(user_id: params[:user_id])
+    if owner?
+      @orders = Order.where(user_id: params[:user_id])
+    else
+      redirect_to root_path
+      flash[:notice] = "Seu pilantra"
+    end
   end
 
   def create
@@ -12,17 +17,35 @@ class OrdersController < ApplicationController
     @order.date = "hoje"
     @order.final_cost = @translation_service.price_per_hour
     if @order.save
-      redirect_to translation_service_order_path(@translation_service, @order)
+      redirect_to user_order_path(@order.user, @order)
     else
       redirect_to translation_service_path
     end
   end
 
   def show
-    @order = Order.find(params[:id])
+    if owner?
+      @order = Order.find(params[:id]) if owner?
+    else
+      redirect_to root_path
+      flash[:notice] = "Seu pilantra"
+    end
   end
 
   def destroy
     @order = Order.find(params[:id])
+
+    if owner?
+      @order.status = "Cancelado"
+      @order.save
+    end
+  end
+
+  private
+
+  def owner?
+    user = User.find(params[:user_id])
+
+    user == current_user
   end
 end
