@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+
   def create
     @translation_service = TranslationService.find(params[:translation_service_id])
     @order = Order.new
@@ -13,7 +13,8 @@ class OrdersController < ApplicationController
     else
       redirect_to translation_service_path
     end
-    
+  end
+
   def show
     @order = Order.find(params[:id])
   end
