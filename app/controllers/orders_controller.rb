@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
     if owner?
-      @orders = Order.where(user_id: params[:user_id])
+      @orders = Order.where(user_id: params[:user_id], status: "active")
     else
       redirect_to root_path
       flash[:notice] = "Seu pilantra"
@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.user = current_user
     @order.translation_service = @translation_service
-    @order.status = "open"
+    @order.status = "active"
     @order.date = "hoje"
     @order.final_cost = @translation_service.price_per_hour
     if @order.save
@@ -38,6 +38,8 @@ class OrdersController < ApplicationController
     if owner?
       @order.status = "Cancelado"
       @order.save
+      redirect_to user_orders_path(current_user)
+      flash[:notice] = "Pedido de nº#{@order.id} cancelado com sucesso!"
     end
   end
 
