@@ -1,0 +1,33 @@
+<div class="container my-5">
+
+  <div class="row">
+
+    <% @orders.each do |order| %>
+
+      <div class="col-4">
+
+        <div class="card-trip my-3">
+          <%= link_to translation_service_order_path(order.translation_service, order) do %>
+            <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg');height: 200px;background-size: cover;padding: 10px;">
+              <% if order.translation_service.remote %>
+                <i class="fas fa-laptop-house"></i>
+              <% end %>
+            </div>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= order.translation_service.original_language %> > <%= order.translation_service.final_language %></h2>
+                <p><%= order.translation_service.description %></p>
+              </div>
+              <h2 class="card-trip-pricing">£<%= order.translation_service.price_per_hour %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+</div>

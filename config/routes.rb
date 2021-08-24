@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
+
+  resources :users do
+    resources :orders, only: %i[index]
+  end
+
   resources :translation_services do
     resources :orders, only: %i[create edit update show destroy]
   end
