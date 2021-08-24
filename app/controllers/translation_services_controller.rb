@@ -15,6 +15,7 @@ class TranslationServicesController < ApplicationController
 
   def create
     @translation_service = TranslationService.new(translation_service_params)
+    @translation_service.user = current_user
     if @translation_service.save
       redirect_to translation_service_path(@translation_service)
     else
