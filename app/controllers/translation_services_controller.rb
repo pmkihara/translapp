@@ -6,6 +6,6 @@ class TranslationServicesController < ApplicationController
   end
 
   def show
-    @service = TranslationService.find(params[:id])
+    @translation_service = TranslationService.find(params[:id])
   end
 end
