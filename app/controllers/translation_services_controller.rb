@@ -4,4 +4,8 @@ class TranslationServicesController < ApplicationController
   def index
     @translation_services = TranslationService.all
   end
+
+  def new
+    @translation_service = TranslationService.new
+  end
 end
