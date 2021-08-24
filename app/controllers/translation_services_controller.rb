@@ -5,6 +5,10 @@ class TranslationServicesController < ApplicationController
     @translation_services = TranslationService.all
   end
 
+  def show
+    @translation_service = TranslationService.find(params[:id])
+  end
+
   def new
     @translation_service = TranslationService.new
   end
@@ -34,6 +38,7 @@ class TranslationServicesController < ApplicationController
   private
 
   def translation_service_params
-    params.require(:translation_service).permit(:location, :remote, :original_language, :final_language, :description, :price_per_hour, :active, :user_id)
+    params.require(:translation_service).permit(:location, :remote, :original_language, :final_language, :description,
+                                                :price_per_hour, :active, :user_id)
   end
 end
