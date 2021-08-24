@@ -59,11 +59,11 @@
       width: 180px !important;
   }
   .col1 {
-
+  
     width: 600px !important;
-
+  
     min-width: 400px !important;
-
+  
   }
   @media only screen and (max-width: 600px){
   .container {
@@ -104,11 +104,11 @@
       width: 100% !important;
   }
   .col1 {
-
+  
     width: 600px !important;
-
+  
     min-width: 400px !important;
-
+  
   }
   .article-image {
       width: 100% !important;
@@ -148,11 +148,11 @@
   .mobile-column-horizontal-c {
       padding-top: 10px !important;
       }
-
+  
   .mobile-opt-col2 {
-
+  
       width: 100% !important;
-
+  
       min-width: 100% !important;
   }
   img {
@@ -198,17 +198,27 @@
                           <tbody>
                             <tr>
                               <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                                Location: <%= @translation_service.location %>
+                                Order Nº: #<%= @order.id %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
+                                Date of the service: <%= @order.date %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 18px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
+                                Location: <%= @order.translation_service.location %>
                               </td>
                             </tr>
                             <tr>
                               <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                                <%= @translation_service.original_language %> > <%= @translation_service.final_language %>
+                                <%= @order.translation_service.original_language %> > <%= @order.translation_service.final_language %>
                               </td>
                             </tr>
                             <tr>
                               <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                Price/hour: $ <%= @translation_service.price_per_hour %>
+                                Price/hour: $ <%= @order.final_cost %>
                               </td>
                             </tr>
                           </tbody>
@@ -232,7 +242,7 @@
                             </tr>
                             <tr>
                               <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                <%= @translation_service.description ? self.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                                <%= @order.translation_service.description ? self.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
                               </td>
                             </tr>
                           </tbody>
@@ -277,9 +287,9 @@
                             </tr>
                             <tr>
                               <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                <% remote_condiction = @translation_service.remote ? 'Yes' : 'No' %>
+                                <% remote_condiction = @order.translation_service.remote ? 'Yes' : 'No' %>
                                 Remote: <%= remote_condiction %> /
-                                <% active_condiction = @translation_service.active ? 'Active' : 'Canceled' %>
+                                <% active_condiction = @order.translation_service.active ? 'Active' : 'Canceled' %>
                                 Status: <%= active_condiction %>
                               </td>
                             </tr>
@@ -294,9 +304,8 @@
                   </tbody>
                 </table>
                 <!-- end BLOCK - block 2 columns / phone -->
-                <%= link_to 'Edit Service', edit_translation_service_path(@translation_service), class: 'btn btn-outline-primary btn-lg mb-3 ml-4' if @translation_service.user == current_user %>
-                <%= link_to 'Destroy Service', translation_service_path(@translation_service), method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' if @translation_service.user == current_user %>
-                <%= link_to 'Voltar', translation_services_path, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
+                <%= link_to 'Cancel', order_path, method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
+                <%= link_to 'Voltar', order_path, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
               </td>
             </tr>
           </tbody>
