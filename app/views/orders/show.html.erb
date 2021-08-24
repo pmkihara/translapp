@@ -237,7 +237,7 @@
                             </tr>
                             <tr>
                               <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                <%= @order.translation_service.description ? self : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                                <%= @order.translation_service.description ? self.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
                               </td>
                             </tr>
                           </tbody>
@@ -300,7 +300,7 @@
                 </table>
                 <!-- end BLOCK - block 2 columns / phone -->
                 <%= link_to 'Cancel', order_path, method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
-                <%= link_to 'Voltar', translation_services_path, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
+                <%= link_to 'Voltar', order_path, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
               </td>
             </tr>
           </tbody>
