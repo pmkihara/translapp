@@ -59,11 +59,11 @@
       width: 180px !important;
   }
   .col1 {
-  
+
     width: 600px !important;
-  
+
     min-width: 400px !important;
-  
+
   }
   @media only screen and (max-width: 600px){
   .container {
@@ -104,11 +104,11 @@
       width: 100% !important;
   }
   .col1 {
-  
+
     width: 600px !important;
-  
+
     min-width: 400px !important;
-  
+
   }
   .article-image {
       width: 100% !important;
@@ -148,11 +148,11 @@
   .mobile-column-horizontal-c {
       padding-top: 10px !important;
       }
-  
+
   .mobile-opt-col2 {
-  
+
       width: 100% !important;
-  
+
       min-width: 100% !important;
   }
   img {
@@ -303,8 +303,8 @@
                   </tbody>
                 </table>
                 <!-- end BLOCK - block 2 columns / phone -->
-                <%= link_to 'Cancel', translation_service_order_path(@order), method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
-                <%= link_to 'Voltar', translation_service_path(@order.translation_service.id), class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
+                <%= link_to 'Cancel', user_order_path(current_user, @order), method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
+                <%= link_to 'Voltar', user_orders_path(current_user), class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
               </td>
             </tr>
           </tbody>

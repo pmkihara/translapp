@@ -8,21 +8,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
+      <%# ----------------- Navbar if the user has logged in ---------------- %>
         <li class="nav-item">
           <%= link_to "All services", translation_services_path, class: "nav-link" %>
         </li>
+        <%# -------------------------- Dropdown menu --------------------------%>
         <li class="nav-item dropdown">
           <%= image_tag "default_user_avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "+ New request", new_translation_service_path, class: "dropdown-item" %>
+            <%= link_to "My translation orders", user_orders_path(current_user), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
+      <%# --------------- Navbar if the user has not logged in -------------- %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
