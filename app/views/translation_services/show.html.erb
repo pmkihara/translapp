@@ -297,6 +297,7 @@
                 <%= link_to 'Edit Service', edit_translation_service_path(@translation_service), class: 'btn btn-outline-primary btn-lg mb-3 ml-4' if @translation_service.user == current_user %>
                 <%= link_to 'Destroy Service', translation_service_path(@translation_service), method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' if @translation_service.user == current_user %>
                 <%= link_to 'Voltar', translation_services_path, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
+                <%= link_to 'Comprar', translation_service_orders_path(@translation_service), method: :post, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
               </td>
             </tr>
           </tbody>
