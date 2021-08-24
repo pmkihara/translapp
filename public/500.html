@@ -4,63 +4,121 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+  .wrap {
+  margin: 0 auto;
+  width: 134px;
+}
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+.f-o-header {
+  font-size: 5rem;
+  position: relative;
+}
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+.f-o-header:before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: black;
+  background: white;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  -webkit-animation: noise-anim-2 3s infinite linear alternate-reverse;
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+}
+.f-o-header:after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: black;
+  background: white;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  -webkit-animation: noise-anim 2s infinite linear alternate-reverse;
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+.f-o-copy {
+  font-size: 1.5rem;
+}
+.f-o-f-wrap {
+  margin: 0 6rem;
+}
+@-webkit-keyframes noise-anim {
+  0% {
+    clip: rect(13px, 9999px, 95px, 0);
   }
-
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  5% {
+    clip: rect(39px, 9999px, 69px, 0);
   }
-
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  10% {
+    clip: rect(51px, 9999px, 36px, 0);
   }
+  15% {
+    clip: rect(64px, 9999px, 61px, 0);
+  }
+  20% {
+    clip: rect(59px, 9999px, 12px, 0);
+  }
+  25% {
+    clip: rect(11px, 9999px, 70px, 0);
+  }
+  30% {
+    clip: rect(70px, 9999px, 45px, 0);
+  }
+  35% {
+    clip: rect(49px, 9999px, 82px, 0);
+  }
+  40% {
+    clip: rect(33px, 9999px, 11px, 0);
+  }
+  45% {
+    clip: rect(73px, 9999px, 44px, 0);
+  }
+  50% {
+    clip: rect(71px, 9999px, 50px, 0);
+  }
+  55% {
+    clip: rect(29px, 9999px, 78px, 0);
+  }
+  60% {
+    clip: rect(74px, 9999px, 95px, 0);
+  }
+  65% {
+    clip: rect(36px, 9999px, 6px, 0);
+  }
+  70% {
+    clip: rect(87px, 9999px, 72px, 0);
+  }
+  75% {
+    clip: rect(17px, 9999px, 68px, 0);
+  }
+  80% {
+    clip: rect(80px, 9999px, 51px, 0);
+  }
+  85% {
+    clip: rect(42px, 9999px, 19px, 0);
+  }
+  90% {
+    clip: rect(70px, 9999px, 5px, 0);
+  }
+  95% {
+    clip: rect(43px, 9999px, 30px, 0);
+  }
+  100% {
+    clip: rect(58px, 9999px, 33px, 0);
+  }
+}
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div class="wrap">
+    <h1 class="f-o-header" data-text="Error">Error</h1>
+    <h1 class="f-o-header" data-text="500">500</h1>
   </div>
 </body>
 </html>
