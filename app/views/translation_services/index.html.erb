@@ -1,13 +1,35 @@
 <div class="container">
-  <div class="card-trip">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-trip-infos">
-      <div>
-        <h2>Title here</h2>
-        <p>Short description here!</p>
+
+  <div class="row">
+
+    <% @translation_services.each do |translation_service| %>
+
+      <% translation_service.description = "Lorem ipsum dolor asit amet"  %>
+      <% translation_service.price_per_hour = 25.0  %>
+      <% translation_service.remote = true  %>
+
+      <div class="col-4">
+
+        <div class="card-trip">
+          <div class="card-image" style="background-image: url('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg');height: 200px;background-size: cover;padding: 10px;">
+            <% if translation_service.remote %>
+              <i class="fas fa-laptop-house"></i>
+            <% end %>
+          </div>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= translation_service.original_language %> > <%= translation_service.final_language %></h2>
+              <p><%= translation_service.description %></p>
+            </div>
+            <h2 class="card-trip-pricing">£<%= translation_service.price_per_hour %></h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+
       </div>
-      <h2 class="card-trip-pricing">£99.99</h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-    </div>
+
+    <% end %>
+
   </div>
+
 </div>

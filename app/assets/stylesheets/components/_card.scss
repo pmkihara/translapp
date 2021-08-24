@@ -4,12 +4,6 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
 .card-trip h2 {
   font-size: 16px;
   font-weight: bold;
@@ -35,4 +29,14 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  padding: 10px;
+  i {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+  }
 }
