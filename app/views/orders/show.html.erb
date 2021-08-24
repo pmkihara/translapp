@@ -242,7 +242,7 @@
                             </tr>
                             <tr>
                               <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                <%= @order.translation_service.description ? self.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                                <%= @order.translation_service.description ? @order.translation_service.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
                               </td>
                             </tr>
                           </tbody>
@@ -265,7 +265,6 @@
                           <tbody>
                             <tr>
                               <td>
-                                <img src="https://media.health.nokia.com/email/permanent/nokia-lifecycle/phone/ios/en/scale-steps-screen.jpg" class="phone-image" border="0" alt="" title="" width="240" height="auto">
                               </td>
                             </tr>
                           </tbody>
@@ -304,8 +303,8 @@
                   </tbody>
                 </table>
                 <!-- end BLOCK - block 2 columns / phone -->
-                <%= link_to 'Cancel', order_path, method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
-                <%= link_to 'Voltar', order_path, class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
+                <%= link_to 'Cancel', translation_service_order_path, method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
+                <%= link_to 'Voltar', translation_service_path(@order.translation_service.id), class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
               </td>
             </tr>
           </tbody>

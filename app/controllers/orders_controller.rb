@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def create
     @translation_service = TranslationService.find(params[:translation_service_id])
     @order = Order.new
@@ -9,7 +8,7 @@ class OrdersController < ApplicationController
     @order.date = "hoje"
     @order.final_cost = @translation_service.price_per_hour
     if @order.save
-      redirect_to translation_service_order_path(@order)
+      redirect_to translation_service_order_path(@translation_service, @order)
     else
       redirect_to translation_service_path
     end
