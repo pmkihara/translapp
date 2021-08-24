@@ -1,33 +1,328 @@
-<h1>Pure CSS Tabs <span>Just CSS, No JS!</span></h1>
-<ul class="tabs" role="tablist">
-  <li>
-    <input type="radio" name="tabs" id="tab1" checked />
-    <label for="tab1"
-               role="tab"
-               aria-selected="true"
-               aria-controls="panel1"
-               tabindex="0">Description</label>
-    <div id="tab-content1"
-             class="tab-content"
-             role="tabpanel"
-             aria-labelledby="description"
-             aria-hidden="false">
-      <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    </div>
-  </li>
-  <li>
-    <input type="radio" name="tabs" id="tab2" />
-    <label for="tab2"
-               role="tab"
-               aria-selected="false"
-               aria-controls="panel2"
-               tabindex="0">Specification</label>
-    <div id="tab-content2"
-             class="tab-content"
-             role="tabpanel"
-             aria-labelledby="specification"
-             aria-hidden="true">
-      <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla?</p>
-    </div>
-  </li>
-</ul>
+<style type="text/css">
+  .product-image {
+      display:block !important;
+      width: 100% !important;
+      max-width: 180px ! important;
+      height:auto !important;
+  }
+  .article-image {
+      width: 100% !important;
+      max-width: 265px !important;
+  }
+  .header-image {
+      width: 100% !important;
+  }
+  .lifestyle-image {
+      width: 100% !important;
+  }
+  .margin-left {
+      margin-left: 5px !important;
+  }
+  .article-right {
+      margin-right: 5px !important;
+  }
+  .block-product {
+      width: 100% !important;
+  }
+  .banner {
+      width: 50% !important;
+  }
+  .block-2-columns {
+      width: 270px !important;
+  }
+  .block-2-columns-right {
+      width: 270px !important;
+      padding-left:30px !important;
+  }
+  .block-2-columns-product {
+      width: 270px !important;
+      padding-top: 0px !important;
+      padding-left: 30px !important;
+  }
+  .block-2-columns-pgm {
+      width: 270px !important;
+      padding-top: 40px !important;
+  }
+  .block-2-columns-13 {
+      width: 150px !important;
+  }
+  .block-2-columns-13-banner {
+      width: 80px !important;
+  }
+  .block-2-columns-23 {
+      width: 350px !important;
+  }
+  .block-2-columns-23-banner {
+      width: 400px !important;
+  }
+  .block-3-columns {
+      width: 180px !important;
+  }
+  .col1 {
+  
+    width: 600px !important;
+  
+    min-width: 400px !important;
+  
+  }
+  @media only screen and (max-width: 600px){
+  .container {
+      display:block !important;
+      width: 100% !important;
+      height:auto !important;
+  }
+  .block-product {
+      width: 50% !important;
+  }
+  .block-picto-img {
+      width: 30% !important;
+  }
+  .block-picto-txt {
+      width: 70% !important;
+  }
+  .block-2-columns {
+      width: 100% !important;
+      padding-left: 0px !important;
+  }
+  .block-2-columns-right {
+      width: 100% !important;
+      padding-left: 0px !important;
+  }
+  .block-2-columns-product {
+      width: 100% !important;
+      padding-left: 0px !important;
+      padding-top: 0px !important;
+      padding-bottom: 30px !important;
+  }
+  .block-2-columns-pgm {
+      width: 100% !important;
+      padding-left: 0px !important;
+      padding-top: 0px !important;
+      padding-bottom: 30px !important;
+  }
+  .block-3-columns {
+      width: 100% !important;
+  }
+  .col1 {
+  
+    width: 600px !important;
+  
+    min-width: 400px !important;
+  
+  }
+  .article-image {
+      width: 100% !important;
+      max-width: 100% !important;
+  }
+  .feature-image {
+      width: 100% !important;
+      max-width: 100% !important;
+  }
+  .phone-image {
+      width: 100% !important;
+      max-width: 100% !important;
+  }
+  .product-banner-image {
+      width: 100% !important;
+      max-width: 100% !important;
+  }
+  .header-image {
+      width: 100% !important;
+      border-top-left-radius: 0px !important;
+      border-top-right-radius: 0px !important;
+  }
+  .mobile-no-padding {
+      padding-top: 0px !important;
+      padding-right: 0px !important;
+      padding-left: 0px !important;
+      padding-bottom: 0px !important;
+  }
+  .mobile-no-radius {
+      border-radius: 0px !important;
+  }
+  .mobile-full-width {
+      width: 100% !important;
+      min-width: 100% !important;
+      max-width: 100% !important;
+  }
+  .mobile-column-horizontal-c {
+      padding-top: 10px !important;
+      }
+  
+  .mobile-opt-col2 {
+  
+      width: 100% !important;
+  
+      min-width: 100% !important;
+  }
+  img {
+      outline:none;
+      text-decoration:none;
+      -ms-interpolation-mode: bicubic;
+  }
+  a img {border:none;}
+  a img:hover{
+      opacity: 0.8;
+  }
+  table{
+      mso-table-lspace:0pt;
+      mso-table-rspace:0pt;
+  }
+  body{
+      -ms-text-size-adjust:100%;
+      -webkit-text-size-adjust:100%;
+      width: 100% !important;
+  }
+  }
+  @media only screen and (max-width: 370px){
+  .block-product {
+      width: 100% !important;
+      min-width: 100% !important;
+  }
+  }
+</style>
+<body>
+  <table class="row justify-content-center" bgcolor="#e8e8e8">
+    <tr class="col-12 col-lg-6">
+      <td class="mobile-no-padding" style="padding-top: 20px; padding-right: 20px; padding-left: 20px;">
+        <table  align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class="mobile-no-radius" style="background-color:#ffffff; border-radius: 15px;">
+                <!-- BLOCK - 1 column / main -->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                  <tbody>
+                    <tr>
+                      <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
+                          <tbody>
+                            <tr>
+                              <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
+                                Location: <%= @translation_service.location %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
+                                <%= @translation_service.original_language %> > <%= @translation_service.final_language %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
+                                Price/hour: $ <%= @translation_service.price_per_hour %>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- end BLOCK - 1 column / main -->
+                <!-- BLOCK - 1 column / second with lifestyle image -->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="edf3f5">
+                  <tbody>
+                    <tr>
+                      <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
+                          <tbody>
+                            <tr>
+                              <td style="color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
+                                Description
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
+                                <%= @translation_service.description ? self : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- end BLOCK - 1 column / main -->
+                <!-- BLOCK - block 2 columns / phone -->
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+                  <tbody>
+                    <tr>
+                      <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
+                        <!--[if mso]>
+                          <table width="265" align="right" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td><![endif]-->
+                        <table class="block-2-columns-product" width="100%" align="right" border="0" cellpadding="0" cellspacing="0">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <img src="https://media.health.nokia.com/email/permanent/nokia-lifecycle/phone/ios/en/scale-steps-screen.jpg" class="phone-image" border="0" alt="" title="" width="240" height="auto">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!--[if mso]></td>
+                      </tr>
+                    </table>
+                        <![endif]-->
+                        <!--[if mso]>
+                          <table width="265" align="left" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td><![endif]-->
+                        <table class="block-2-columns" width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                          <tbody>
+                            <tr>
+                              <td style="padding-top: 0px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
+                                Info
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
+                                <% remote_condiction = @translation_service.remote ? 'Yes' : 'No' %>
+                                Remote: <%= remote_condiction %> /
+                                <% active_condiction = @translation_service.active ? 'Active' : 'Canceled' %>
+                                Status: <%= active_condiction %>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!--[if mso]></td>
+                      </tr>
+                    </table>
+                        <![endif]-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- end BLOCK - block 2 columns / phone -->
+                <%= link_to 'Edit Service', edit_translation_service_path(@translation_service), class: 'btn btn-outline-primary btn-lg mb-3 ml-4' %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- BLOCK - Footer -->
+        <table class="container" align="center" width="600" border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="padding-top: 20px; padding-bottom: 30px; padding-right: 20px; padding-left: 20px;">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 560px;">
+                  <tbody>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- end ENCAPSULATION -->
+</body>
