@@ -203,6 +203,11 @@
                             </tr>
                             <tr>
                               <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
+                                Date of the service: <%= @order.date %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding-top: 18px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
                                 Location: <%= @order.translation_service.location %>
                               </td>
                             </tr>
@@ -213,7 +218,7 @@
                             </tr>
                             <tr>
                               <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                Price/hour: $ <%= @order.translation_service.price_per_hour %>
+                                Price/hour: $ <%= @order.final_cost %>
                               </td>
                             </tr>
                           </tbody>
