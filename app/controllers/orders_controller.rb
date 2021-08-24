@@ -1,4 +1,8 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = Order.where(user_id: params[:user_id])
+  end
+
   def create
     @translation_service = TranslationService.find(params[:translation_service_id])
     @order = Order.new
