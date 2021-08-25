@@ -1,7 +1,17 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('banner.jpg') %>);">
   <div class="banner-text">
     <h1>TranslApp</h1>
-    <p>Don't blame me. I'm an interpreter. I'm not supposed to know a power socket from a computer terminal.</p>
+    <p>Find a translation buddy in your region.</p>
     <%= link_to "View all offers", translation_services_path, class: "btn btn-primary" %>
   </div>
 </div>
+
+<footer class="flex-col">
+  <div class="social-links-container bg-secondary">
+    <div class="wrapper flex-col center">
+      <div class="copyright-container">
+        <p> Copyright &copy; 2021 TranslApp, Inc. All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
