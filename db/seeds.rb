@@ -45,7 +45,6 @@ puts "...."
     user_id: user_client.id,
     translation_service_id: services.id,
     date: Faker::Date.in_date_period,
-    status: "active",
     final_cost: Faker::Number.decimal(l_digits: 2)
   )
   order.save!

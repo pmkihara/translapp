@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_210828) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "translation_service_id", null: false
-    t.string "status", null: false
+    t.string "status", default: "active", null: false
     t.string "date", null: false
     t.float "final_cost", null: false
     t.datetime "created_at", precision: 6, null: false
