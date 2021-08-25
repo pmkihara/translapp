@@ -16,7 +16,10 @@ class OrdersController < ApplicationController
     @order.status = "active"
     @order.date = "hoje"
     @order.final_cost = @translation_service.price_per_hour
+    @translation_service.active = false
+    @translation_service.save
     if @order.save
+      flash[:alert] = "Yay! 🎉 you successfully created the order"
       redirect_to user_order_path(@order.user, @order)
     else
       redirect_to translation_service_path
@@ -55,7 +58,7 @@ class OrdersController < ApplicationController
 
       if @order.save
         redirect_to user_orders_path(current_user)
-        flash[:notice] = "Order of nº#{@order.id} #{status} successfully!"
+        flash[:alert] = "Order of nº#{@order.id} #{status} successfully!"
       end
     end
   end

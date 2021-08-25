@@ -1,147 +1,147 @@
-  <table class="row justify-content-center" bgcolor="#e8e8e8">
-    <tr class="col-12 col-lg-6">
-      <td class="mobile-no-padding" style="padding-top: 20px; padding-right: 20px; padding-left: 20px;">
-        <table  align="center" width="600" border="0" cellspacing="0" cellpadding="0">
-          <tbody>
-            <tr>
-              <td class="mobile-no-radius" style="background-color:#ffffff; border-radius: 15px;">
-                <!-- BLOCK - 1 column / main -->
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-                  <tbody>
-                    <tr>
-                      <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
-                          <tbody>
-                            <tr>
-                              <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                                Order Nº: #<%= @order.id %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                                Date of the service: <%= @order.date %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="padding-top: 18px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                                Location: <%= @order.translation_service.location %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                                <%= @order.translation_service.original_language %> > <%= @order.translation_service.final_language %>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                Price/hour: $ <%= @order.final_cost %>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
+<table class="row justify-content-center" bgcolor="#e8e8e8">
+  <tr class="col-12 col-lg-6">
+    <td class="mobile-no-padding" style="padding-top: 20px; padding-right: 20px; padding-left: 20px;">
+      <table  align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td class="mobile-no-radius" style="background-color:#ffffff; border-radius: 15px;">
+              <!-- BLOCK - 1 column / main -->
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tbody>
+                  <tr>
+                    <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
+                        <tbody>
+                          <tr>
+                            <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
+                              Order Nº: #<%= @order.id %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
+                              Date of the service: <%= @order.date %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding-top: 18px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
+                              Location: <%= @order.translation_service.location %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
+                              <%= @order.translation_service.original_language %> > <%= @order.translation_service.final_language %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
+                              Price/hour: $ <%= @order.final_cost %>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- end BLOCK - 1 column / main -->
+              <!-- BLOCK - 1 column / second with lifestyle image -->
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="edf3f5">
+                <tbody>
+                  <tr>
+                    <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
+                      <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
+                        <tbody>
+                          <tr>
+                            <td style="color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
+                              Description
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
+                              <%= @order.translation_service.description ? @order.translation_service.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- end BLOCK - 1 column / main -->
+              <!-- BLOCK - block 2 columns / phone -->
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+                <tbody>
+                  <tr>
+                    <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
+                      <!--[if mso]>
+                        <table width="265" align="right" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td><![endif]-->
+                      <table class="block-2-columns-product" width="100%" align="right" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!--[if mso]></td>
                     </tr>
-                  </tbody>
-                </table>
-                <!-- end BLOCK - 1 column / main -->
-                <!-- BLOCK - 1 column / second with lifestyle image -->
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="edf3f5">
-                  <tbody>
-                    <tr>
-                      <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
-                          <tbody>
-                            <tr>
-                              <td style="color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                                Description
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                <%= @order.translation_service.description ? @order.translation_service.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
+                  </table>
+                      <![endif]-->
+                      <!--[if mso]>
+                        <table width="265" align="left" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td><![endif]-->
+                      <table class="block-2-columns" width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td style="padding-top: 0px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
+                              Info
+                            </td>
+                          </tr>
+                          <tr>
+                            <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
+                              <% remote_condiction = @order.translation_service.remote ? 'Yes' : 'No' %>
+                              Remote: <%= remote_condiction %> /
+                              <% active_condiction = @order.translation_service.active ? 'Active' : 'Canceled' %>
+                              Status: <%= active_condiction %>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!--[if mso]></td>
                     </tr>
-                  </tbody>
-                </table>
-                <!-- end BLOCK - 1 column / main -->
-                <!-- BLOCK - block 2 columns / phone -->
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-                  <tbody>
-                    <tr>
-                      <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
-                        <!--[if mso]>
-                          <table width="265" align="right" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td><![endif]-->
-                        <table class="block-2-columns-product" width="100%" align="right" border="0" cellpadding="0" cellspacing="0">
-                          <tbody>
-                            <tr>
-                              <td>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <!--[if mso]></td>
-                      </tr>
-                    </table>
-                        <![endif]-->
-                        <!--[if mso]>
-                          <table width="265" align="left" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td><![endif]-->
-                        <table class="block-2-columns" width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
-                          <tbody>
-                            <tr>
-                              <td style="padding-top: 0px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                                Info
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                                <% remote_condiction = @order.translation_service.remote ? 'Yes' : 'No' %>
-                                Remote: <%= remote_condiction %> /
-                                <% active_condiction = @order.translation_service.active ? 'Active' : 'Canceled' %>
-                                Status: <%= active_condiction %>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <!--[if mso]></td>
-                      </tr>
-                    </table>
-                        <![endif]-->
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!-- end BLOCK - block 2 columns / phone -->
-                <%= link_to 'Cancel', user_mark_canceled_path(current_user, @order), method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
-                <%= link_to 'Confirm', user_mark_done_path(current_user, @order), method: :patch, data: { confirm: "Are you sure you confirm receive of order nº#{@order.id}?"}, class: 'btn btn-outline-success btn-lg mb-3 ml-4' %>
-                <%= link_to 'Voltar', user_orders_path(current_user), class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- BLOCK - Footer -->
-        <table class="container" align="center" width="600" border="0" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td style="padding-top: 20px; padding-bottom: 30px; padding-right: 20px; padding-left: 20px;">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 560px;">
-                  <tbody>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
+                  </table>
+                      <![endif]-->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- end BLOCK - block 2 columns / phone -->
+              <%= link_to 'Cancel', user_mark_canceled_path(current_user, @order), method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger mb-3 ml-4' %>
+              <%= link_to 'Confirm', user_mark_done_path(current_user, @order), method: :patch, data: { confirm: "Are you sure you confirm receive of order nº#{@order.id}?"}, class: 'btn btn-outline-success mb-3 ml-4' %>
+              <%= link_to 'Back', user_orders_path(current_user), class: 'btn btn-outline-secondary mb-3 ml-4' %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- BLOCK - Footer -->
+      <table class="container" align="center" width="600" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td style="padding-top: 20px; padding-bottom: 30px; padding-right: 20px; padding-left: 20px;">
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 560px;">
+                <tbody>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+</tbody>
 </table>
 </td>
 </tr>

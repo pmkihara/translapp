@@ -1,4 +1,5 @@
 <div class="container my-5">
+  <h1><%= params[:user_id] ? "My requests" : "All requests" %></h1>
   <div class="row">
     <% @translation_services.each do |translation_service| %>
       <div class="col-4">
