@@ -303,7 +303,8 @@
                   </tbody>
                 </table>
                 <!-- end BLOCK - block 2 columns / phone -->
-                <%= link_to 'Cancel', user_order_path(current_user, @order), method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
+                <%= link_to 'Cancel', user_mark_canceled_path(current_user, @order), method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger btn-lg mb-3 ml-4' %>
+                <%= link_to 'Confirm', user_mark_done_path(current_user, @order), method: :patch, data: { confirm: "Are you sure you confirm receive of order nº#{@order.id}?"}, class: 'btn btn-outline-success btn-lg mb-3 ml-4' %>
                 <%= link_to 'Voltar', user_orders_path(current_user), class: 'btn btn-outline-secondary btn-lg mb-3 ml-4' %>
               </td>
             </tr>

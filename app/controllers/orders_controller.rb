@@ -32,15 +32,12 @@ class OrdersController < ApplicationController
     end
   end
 
-  def destroy
-    @order = Order.find(params[:id])
+  def mark_as_done
+    change_status("done")
+  end
 
-    if owner?
-      @order.status = "Cancelado"
-      @order.save
-      redirect_to user_orders_path(current_user)
-      flash[:notice] = "Pedido de nº#{@order.id} cancelado com sucesso!"
-    end
+  def mark_as_canceled
+    change_status("canceled")
   end
 
   private
@@ -49,5 +46,17 @@ class OrdersController < ApplicationController
     user = User.find(params[:user_id])
 
     user == current_user
+  end
+
+  def change_status(status)
+    if owner?
+      @order = Order.find(params[:id])
+      @order.status = status
+
+      if @order.save
+        redirect_to user_orders_path(current_user)
+        flash[:notice] = "Order of nº#{@order.id} #{status} successfully!"
+      end
+    end
   end
 end
