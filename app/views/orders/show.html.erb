@@ -104,8 +104,7 @@
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
                               <% remote_condiction = @order.translation_service.remote ? 'Yes' : 'No' %>
                               Remote: <%= remote_condiction %> /
-                              <% active_condiction = @order.status ? 'Active' : 'Canceled' %>
-                              Status: <%= active_condiction %>
+                              Status: <%= @order.status %>
                             </td>
                           </tr>
                         </tbody>
