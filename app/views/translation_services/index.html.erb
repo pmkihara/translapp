@@ -14,9 +14,10 @@
               <div>
                 <h2><%= translation_service.original_language %> > <%= translation_service.final_language %></h2>
                 <p><%= translation_service.description %></p>
+                <p><%= translation_service.active ? 'Available' : 'Not Available' %></p>
               </div>
               <h2 class="card-trip-pricing">$<%= translation_service.price_per_hour %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <img src="https://source.unsplash.com/featured/?people?<%= translation_service.user.id%>" class="card-trip-user avatar-bordered" />
             </div>
           <% end %>
         </div>
