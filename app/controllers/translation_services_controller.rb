@@ -21,6 +21,7 @@ class TranslationServicesController < ApplicationController
     @translation_service = TranslationService.new(translation_service_params)
     @translation_service.user = current_user
     if @translation_service.save
+      flash[:alert] = "Yay! 🎉 you successfully created a service"
       redirect_to translation_service_path(@translation_service)
     else
       render :new
@@ -34,6 +35,7 @@ class TranslationServicesController < ApplicationController
   def update
     @translation_service = TranslationService.find(params[:id])
     if @translation_service.update(translation_service_params)
+      flash[:alert] = "Yay! 🎉 you successfully update the service"
       redirect_to translation_service_path(@translation_service)
     else
       render :edit
@@ -46,6 +48,7 @@ class TranslationServicesController < ApplicationController
     if @translation_service.user == current_user
       @translation_service.active = false
       @translation_service.save
+      flash[:notice] = "You successfully deleted ❌ the service"
       redirect_to translation_services_path
     end
   end
