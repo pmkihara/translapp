@@ -69,7 +69,7 @@
                             <td><![endif]-->
                       <table class="block-2-columns-product" width="100%" align="right" border="0" cellpadding="0" cellspacing="0">
                         <tbody>
-                     
+
                         </tbody>
                       </table>
                       <!--[if mso]></td>
@@ -99,9 +99,9 @@
                       </table>
               <!-- end BLOCK - block 2 columns / phone -->
               <%= link_to 'Back', translation_services_path, class: 'btn btn-outline-secondary mb-3 ml-4' %>
-              <%= link_to 'Edit Service', edit_translation_service_path(@translation_service), class: 'btn btn-outline-primary mb-3 ml-4' if @translation_service.user == current_user %>
-              <%= link_to 'Destroy Service', translation_service_path(@translation_service), method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-outline-danger mb-3 ml-4' if @translation_service.user == current_user %>
-              <%= link_to 'I Want It', translation_service_orders_path(@translation_service), method: :post, class: 'btn btn-outline-success mb-3 ml-4' %>
+              <%= link_to 'Edit offer', edit_translation_service_path(@translation_service), class: 'btn btn-outline-primary mb-3 ml-4' if @translation_service.user == current_user %>
+              <%= link_to 'Cancel offer', translation_service_path(@translation_service), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-danger mb-3 ml-4' if @translation_service.user == current_user %>
+              <%= link_to 'I want it', translation_service_orders_path(@translation_service), method: :post, class: 'btn btn-outline-success mb-3 ml-4' unless @translation_service.user == current_user %>
             </td>
           </tr>
         </tbody>
