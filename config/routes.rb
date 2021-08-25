@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :orders, only: %i[index show destroy]
+    resources :orders, only: %i[index show]
+    patch 'orders/:id', to: 'orders#mark_as_done', as: "mark_done"
+    delete 'orders/:id', to: 'orders#mark_as_canceled', as: "mark_canceled"
   end
 
   resources :translation_services do
