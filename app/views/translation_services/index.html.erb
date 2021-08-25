@@ -3,23 +3,24 @@
   <div class="row">
     <% @translation_services.each do |translation_service| %>
       <div class="col-4">
-        <div class="card-trip my-3">
-          <%= link_to translation_service_path(translation_service) do %>
-            <div class="card-image" style="background-image: url('https://source.unsplash.com/featured/?people?<%= translation_service.id %>');height: 200px;background-size: cover;padding: 10px;">
-              <% if translation_service.remote %>
-                <i class="fas fa-laptop-house"></i>
-              <% end %>
-            </div>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= translation_service.original_language %> > <%= translation_service.final_language %></h2>
-                <p><%= translation_service.description %></p>
-                <p><%= translation_service.active ? 'Available' : 'Not Available' %></p>
+        <div class="cards">
+          <div class="card-trip my-3">
+            <%= link_to translation_service_path(translation_service) do %>
+              <div class="card-image" style="background-image: url('https://source.unsplash.com/featured/?people?<%= translation_service.id %>');height: 200px;background-size: cover;padding: 10px;">
+                <% if translation_service.remote %>
+                  <i class="fas fa-laptop-house"></i>
+                <% end %>
               </div>
-              <h2 class="card-trip-pricing">$<%= translation_service.price_per_hour %></h2>
-              <img src="https://source.unsplash.com/featured/?people?<%= translation_service.user.id%>" class="card-trip-user avatar-bordered" />
-            </div>
-          <% end %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= translation_service.original_language %> > <%= translation_service.final_language %></h2>
+                  <p><%= translation_service.description %></p>
+                </div>
+                <h2 class="card-trip-pricing">$<%= translation_service.price_per_hour %></h2>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

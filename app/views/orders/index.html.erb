@@ -1,25 +1,17 @@
 <div class="container my-5">
-  <div class="row">
+  <h1>My orders</h1>
+
+  <div class="cards mt-4">
     <% @orders.each do |order| %>
-      <div class="col-4">
-        <div class="card-trip my-3">
-          <%= link_to user_order_path(current_user, order) do %>
-            <div class="card-image" style="background-image: url('https://source.unsplash.com/featured/?people?<%= order.id %>');height: 200px;background-size: cover;padding: 10px;">
-              <% if order.translation_service.remote %>
-                <i class="fas fa-laptop-house"></i>
-              <% end %>
-            </div>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= order.translation_service.original_language %> > <%= order.translation_service.final_language %></h2>
-                <p><%= order.translation_service.description %></p>
-              </div>
-              <h2 class="card-trip-pricing">$<%= order.translation_service.price_per_hour %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-            </div>
-          <% end %>
+      <%= link_to user_order_path(current_user, order) do %>
+        <div class="card-product mb-3">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+          <h2><%= order.translation_service.original_language %> > <%= order.translation_service.final_language %></h2>
+          <p>Your client for this service is <strong><%= order.translation_service.user.name %></strong>.</p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

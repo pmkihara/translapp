@@ -13,8 +13,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.user = current_user
     @order.translation_service = @translation_service
-    @order.status = "active"
-    @order.date = "hoje"
+    @order.date = "25/08/2021"
     @order.final_cost = @translation_service.price_per_hour
     @translation_service.active = false
     @translation_service.save
