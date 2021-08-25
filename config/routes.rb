@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :orders, only: %i[index show]
     patch 'orders/:id', to: 'orders#mark_as_done', as: "mark_done"
     delete 'orders/:id', to: 'orders#mark_as_canceled', as: "mark_canceled"
+    get 'translation_services', to: 'translation_services#index', as: "my_services"
   end
 
   resources :translation_services do
