@@ -1,14 +1,13 @@
 <div class="container my-5">
   <h1>My orders</h1>
-
   <div class="cards mt-4">
     <% @orders.each do |order| %>
       <%= link_to user_order_path(current_user, order) do %>
         <div class="card-product mb-3">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <img src="https://source.unsplash.com/featured/?people?<%= order.id %>" />
           <div class="card-product-infos">
-          <h2><%= order.translation_service.original_language %> > <%= order.translation_service.final_language %></h2>
-          <p>Your client for this service is <strong><%= order.translation_service.user.name %></strong>.</p>
+            <h2><%= order.translation_service.original_language %> > <%= order.translation_service.final_language %></h2>
+            <p>Your client for this service is <strong><%= order.translation_service.user.name %></strong>.</p>
           </div>
         </div>
       <% end %>
