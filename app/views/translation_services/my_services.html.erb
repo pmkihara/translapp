@@ -1,0 +1,18 @@
+<div class="container my-5">
+  <h1>My requests</h1>
+  <div class="cards mt-4">
+    <% @translation_services.each do |translation_service| %>
+      <%= link_to translation_service_path(translation_service) do %>
+        <div class="card-product mb-3">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+          <h2><%= translation_service.original_language %> > <%= translation_service.final_language %></h2>
+          <% if translation_service.order %>
+            <p>Your translator for this service is <strong><%= translation_service.order.user.name %></strong>.</p>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

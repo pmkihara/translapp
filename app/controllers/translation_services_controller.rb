@@ -2,11 +2,7 @@ class TranslationServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if params[:user_id]
-      my_services(params[:user_id])
-    else
-      @translation_services = TranslationService.where(active: true)
-    end
+    @translation_services = TranslationService.where(active: true)
   end
 
   def show
@@ -53,20 +49,20 @@ class TranslationServicesController < ApplicationController
     end
   end
 
+  def my_services
+    if owner?
+      @translation_services = TranslationService.where(user_id: params[:user_id])
+    else
+      redirect_to root_path
+      flash[:notice] = "Seu pilantra"
+    end
+  end
+
   private
 
   def translation_service_params
     params.require(:translation_service).permit(:location, :remote, :original_language, :final_language, :description,
                                                 :price_per_hour, :active, :user_id)
-  end
-
-  def my_services(user_id)
-    if owner?
-      @translation_services = TranslationService.where(user_id: user_id, active: true)
-    else
-      redirect_to root_path
-      flash[:notice] = "Seu pilantra"
-    end
   end
 
   def owner?
