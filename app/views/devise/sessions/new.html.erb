@@ -1,9 +1,9 @@
 <br>
 <div class="container">
-  <h3 class="text-center">Log in</h3>
   <br>
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <h3 class="text-center">Log in</h3>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
           <%= f.input :email,
@@ -17,7 +17,11 @@
         </div>
         <hr>
         <div class="form-actions mt-4">
-          <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
+          <%= f.button :submit, "Log in", class: "btn btn-primary btn-block show-reaction-button btn btn-contrast w-100" %>
+        </div>
+        <br>
+        <div>
+          <%= link_to "Back", :back, class: 'btn btn-outline-white btn-block' %>
         </div>
       <% end %>
     </div>
