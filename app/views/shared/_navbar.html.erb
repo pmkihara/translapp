@@ -10,13 +10,13 @@
       <% if user_signed_in? %>
         <%# ----------------- Navbar if the user has logged in ---------------- %>
         <li class="nav-item">
-          <%= link_to "All services", translation_services_path, class: "nav-link" %>
+          <%= link_to "All services", offers_path, class: "nav-link" %>
         </li>
         <%# -------------------------- Dropdown menu --------------------------%>
         <li class="nav-item dropdown">
           <%= image_tag "bars-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "+ New request", new_translation_service_path, class: "dropdown-item" %>
+            <%= link_to "+ New request", new_offer_path, class: "dropdown-item" %>
             <%= link_to "My jobs", user_jobs_path(current_user), class: "dropdown-item" %>
             <%= link_to "My requests", user_my_services_path(current_user), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

@@ -10,19 +10,19 @@ class JobsController < ApplicationController
   end
 
   def create
-    @translation_service = TranslationService.find(params[:translation_service_id])
+    @offer = Offer.find(params[:offer_id])
     @job = Job.new
     @job.user = current_user
-    @job.translation_service = @translation_service
+    @job.offer = @offer
     @job.date = "25/08/2021"
-    @job.final_cost = @translation_service.price_per_hour
-    @translation_service.status = "accepted"
-    @translation_service.save
+    @job.final_cost = @offer.price_per_hour
+    @offer.status = "accepted"
+    @offer.save
     if @job.save
       flash[:alert] = "Yay! 🎉 you successfully created the job"
       redirect_to user_job_path(@job.user, @job)
     else
-      redirect_to translation_service_path
+      redirect_to offer_path
     end
   end
 
@@ -51,12 +51,12 @@ class JobsController < ApplicationController
     user == current_user
   end
 
-  def change_status(job_status, translation_service_status)
+  def change_status(job_status, offer_status)
     if owner?
       @job = Job.find(params[:id])
       @job.status = job_status
-      @job.translation_service.status = translation_service_status
-      @job.translation_service.save
+      @job.offer.status = offer_status
+      @job.offer.save
       if @job.save
         redirect_to user_jobs_path(current_user)
         flash[:alert] = "Job of nº#{@job.id} #{job_status} successfully!"

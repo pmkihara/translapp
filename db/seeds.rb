@@ -39,7 +39,7 @@ user.save
   )
   user_client.save!
 
-  services = TranslationService.new(
+  services = Offer.new(
     location: Faker::Address.country,
     original_language: Faker::Nation.language,
     final_language: Faker::Nation.language,
@@ -52,7 +52,7 @@ user.save
 
   job = Job.new(
     user_id: user_client.id,
-    translation_service_id: services.id,
+    offer_id: services.id,
     date: Faker::Date.in_date_period,
     final_cost: Faker::Number.decimal(l_digits: 2)
   )

@@ -6,8 +6,8 @@
         <div class="card-product mb-3" style="<%= 'opacity: 0.5;' if job.status != 'accepted' %>">
           <img src="https://source.unsplash.com/featured/?people?<%= job.id %>" />
           <div class="card-product-infos">
-            <h2><%= job.translation_service.original_language %> > <%= job.translation_service.final_language %></h2>
-            <p>Your client for this service is <strong><%= job.translation_service.user.name %></strong>.</p>
+            <h2><%= job.offer.original_language %> > <%= job.offer.final_language %></h2>
+            <p>Your client for this service is <strong><%= job.offer.user.name %></strong>.</p>
           </div>
         </div>
       <% end %>

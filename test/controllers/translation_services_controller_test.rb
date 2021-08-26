@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TranslationServicesControllerTest < ActionDispatch::IntegrationTest
+class OffersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

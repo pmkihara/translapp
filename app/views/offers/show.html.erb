@@ -14,17 +14,17 @@
                         <tbody>
                           <tr>
                             <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                              Location: <%= @translation_service.location %>
+                              Location: <%= @offer.location %>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                              <%= @translation_service.original_language %> > <%= @translation_service.final_language %>
+                              <%= @offer.original_language %> > <%= @offer.final_language %>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              Price/hour: $ <%= @translation_service.price_per_hour %>
+                              Price/hour: $ <%= @offer.price_per_hour %>
                             </td>
                           </tr>
                         </tbody>
@@ -48,7 +48,7 @@
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <%= @translation_service.description ? @translation_service.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                              <%= @offer.description ? @offer.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
                             </td>
                           </tr>
                         </tbody>
@@ -88,9 +88,9 @@
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <% remote_condiction = @translation_service.remote ? 'Yes' : 'No' %>
+                              <% remote_condiction = @offer.remote ? 'Yes' : 'No' %>
                               Remote: <%= remote_condiction %> /
-                              Status: <%= @translation_service.status.capitalize %>
+                              Status: <%= @offer.status.capitalize %>
                             </td>
                           </tr>
                         </tbody>
@@ -104,10 +104,10 @@
                 </tbody>
               </table>
               <!-- end BLOCK - block 2 columns / phone -->
-              <%= link_to 'Back', translation_services_path, class: 'btn btn-outline-secondary mb-3 ml-4' %>
-              <%= link_to 'Edit offer', edit_translation_service_path(@translation_service), class: 'btn btn-outline-primary mb-3 ml-4' if @translation_service.user == current_user && @translation_service.status == "available" %>
-              <%= link_to 'Cancel offer', translation_service_path(@translation_service), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-danger mb-3 ml-4' if @translation_service.user == current_user && @translation_service.status == "available" %>
-              <%= link_to 'I want it', translation_service_jobs_path(@translation_service), method: :post, class: 'btn btn-outline-success mb-3 ml-4' if @translation_service.user != current_user && @translation_service.status == "available" %>
+              <%= link_to 'Back', offers_path, class: 'btn btn-outline-secondary mb-3 ml-4' %>
+              <%= link_to 'Edit offer', edit_offer_path(@offer), class: 'btn btn-outline-primary mb-3 ml-4' if @offer.user == current_user && @offer.status == "available" %>
+              <%= link_to 'Cancel offer', offer_path(@offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-danger mb-3 ml-4' if @offer.user == current_user && @offer.status == "available" %>
+              <%= link_to 'I want it', offer_jobs_path(@offer), method: :post, class: 'btn btn-outline-success mb-3 ml-4' if @offer.user != current_user && @offer.status == "available" %>
             </td>
           </tr>
         </tbody>
