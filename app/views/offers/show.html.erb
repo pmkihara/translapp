@@ -19,10 +19,18 @@
           </div>
         </div>
       </div>
-      <div class="description my-5">
-        <h2>Description</h2>
-        <p><%= @offer.description ? @offer.description : '' %></p>
+      <div>
+        <div class="description my-5">
+          <h2>Description</h2>
+          <p><%= @offer.description ? @offer.description : '' %></p>
+        </div>
+        <div>
+          <h2>More details</h2>
+          <p>Status: <%= @offer.status %></p>
+        </div>
       </div>
+      <br>
+      <br>
       <%= link_to 'Back', offers_path, class: 'btn btn-outline-secondary' %>
     </div>
   </div>

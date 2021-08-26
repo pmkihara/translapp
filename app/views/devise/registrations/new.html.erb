@@ -1,9 +1,9 @@
 <br>
 <div class="container">
-  <h3 class="text-center">Sign up!</h3>
   <br>
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <h3 class="text-center">Sign up!</h3>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
@@ -29,7 +29,11 @@
         </div>
         <hr>
         <div class="form-actions mt-4">
-          <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
+          <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block show-reaction-button btn btn-contrast w-100" %>
+        </div>
+        <br>
+        <div>
+          <%= link_to "Back", :back, class: 'btn btn-outline-white btn-block' %>
         </div>
       <% end %>
     </div>

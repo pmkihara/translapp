@@ -4,7 +4,7 @@
   <div class="container">
     <br>
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-6">
+      <div class="col-12 col-lg-6 show-card p-4 pr-1">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
@@ -30,25 +30,18 @@
           </div>
           <hr>
           <div class="form-actions mt-4">
-            <%= f.button :submit, "Update", class: "btn btn-primary btn-block" %>
+            <%= f.button :submit, "Update", class: "btn btn-primary btn-block show-reaction-button btn btn-contrast w-100" %>
           </div>
         <% end %>
         <br>
-        <h3>Cancel my account</h3>
-        <p>Are you unhappy <%= resource_name.to_s.humanize %>?</p>
-        <%= link_to "Back", :back, class: 'btn btn-outline-secondary' %>
-        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-danger' %>
+        <br>
+        <div class="show-card p-4 pr-1">
+          <div class="container text-center">
+            <h3>Cancel my account</h3>
+            <p>Are you unhappy <%= resource_name.to_s.humanize %>?</p>
+            <%= link_to "Back", :back, class: 'btn btn-outline-secondary' %>
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-danger' %>
+          </div>
+        </div>
       </div>
     </div>
-    <hr>
-    <div class="form-actions mt-4">
-      <%= f.button :submit, "Update", class: "btn btn-primary btn-block" %>
-    </div>
-  <% end %>
-
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= link_to "Cancel my account", user_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
-</div>
