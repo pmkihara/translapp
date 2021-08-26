@@ -48,8 +48,10 @@ class OffersController < ApplicationController
 
     if @offer.user == current_user
       @offer.status = "deleted"
-      @offer.job.status = "cancelled"
-      @offer.job.save
+      if @offer.job
+        @offer.job.status = "cancelled"
+        @offer.job.save
+      end
       @offer.save
       flash[:notice] = "You successfully deleted ❌ the service"
       redirect_to user_my_services_path(current_user)
