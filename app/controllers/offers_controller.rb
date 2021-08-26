@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if params[:query] != ""
+    if params[:query] && params[:query] != ""
       @offers = Offer.search_by_location_and_language(params[:query])
     else
       offers = Offer.where(status: "available")
