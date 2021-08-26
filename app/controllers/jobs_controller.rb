@@ -11,14 +11,17 @@ class JobsController < ApplicationController
 
   def create
     @offer = Offer.find(params[:offer_id])
-    @job = Job.new
-    @job.user = current_user
-    @job.offer = @offer
-    @job.date = "25/08/2021"
-    @job.final_cost = @offer.price_per_hour
-    @offer.status = "accepted"
-    @offer.save
+
+    @job = Job.new(
+      user: current_user,
+      offer: @offer,
+      date: @offer.date,
+      final_cost: @offer.price_per_hour * @offer.service_hours
+    )
+
     if @job.save
+      @offer.status = "accepted"
+      @offer.save
       flash[:alert] = "Yay! 🎉 you successfully created the job"
       redirect_to user_job_path(@job.user, @job)
     else

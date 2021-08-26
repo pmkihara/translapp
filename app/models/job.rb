@@ -4,4 +4,5 @@ class Job < ApplicationRecord
 
   STATUS = %w[accepted cancelled finished].freeze
   validates :status, inclusion: { in: STATUS }
+  validates :user, :offer, :date, :final_cost, presence: true
 end

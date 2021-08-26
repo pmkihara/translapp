@@ -43,15 +43,12 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
 
     if @offer.user == current_user
-      if @offer.job && @offer.job.status == "accepted"
-        flash[:notice] = "You don't delete a service accepted! Please talk with your translator!"
-        redirect_to request.referrer
-      else
-        @offer.status = "deleted"
-        @offer.save
-        flash[:notice] = "You successfully deleted ❌ the service"
-        redirect_to user_my_services_path(current_user)
-      end
+      @offer.status = "deleted"
+      @offer.job.status = "cancelled"
+      @offer.job.save
+      @offer.save
+      flash[:notice] = "You successfully deleted ❌ the service"
+      redirect_to user_my_services_path(current_user)
     end
   end
 
@@ -68,7 +65,7 @@ class OffersController < ApplicationController
 
   def offer_params
     params.require(:offer).permit(:location, :remote, :original_language, :final_language, :description,
-                                  :price_per_hour, :user_id)
+                                  :price_per_hour, :service_hours, :date, :user_id)
   end
 
   def owner?
