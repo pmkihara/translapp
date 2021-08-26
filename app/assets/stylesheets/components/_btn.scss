@@ -1,0 +1,35 @@
+.btn-outline-contrast {
+  border-color: $contrast;
+  color: $contrast;
+  &:hover {
+    background-color: $dark-contrast;
+  }
+}
+.btn-outline-black {
+  border-color: $black;
+  color: $black;
+  &:hover {
+    background-color: $black;
+    color: $contrast;
+  }
+}
+.btn-contrast {
+  border-color: $contrast;
+  background-color: $contrast;
+  opacity: 100%;
+  color: $white;
+  &:hover {
+    background-color: $dark-contrast;
+    color: $white;
+  }
+}
+.btn-round {
+  border-radius: 20px;
+}
+.btn-outline-white {
+  border-color: $white;
+  color: $white;
+  &:hover {
+    background-color: $white;
+  }
+}

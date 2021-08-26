@@ -9,6 +9,10 @@
 puts "Creating!!!!"
 puts "...."
 
+Job.destroy_all
+Offer.destroy_all
+User.destroy_all
+
 user = User.new(
   name: 'Pilantra',
   email: 'p@p.com',
@@ -18,7 +22,7 @@ user = User.new(
 )
 user.save
 
-3.times do
+6.times do
   name_fake = Faker::Name.first_name
   user_translator = User.new(
     { name: name_fake,
@@ -39,22 +43,23 @@ user.save
   )
   user_client.save!
 
-  services = Offer.new(
+  offer = Offer.new(
     location: Faker::Address.country,
     original_language: Faker::Nation.language,
     final_language: Faker::Nation.language,
     description: Faker::Lorem.sentence,
     price_per_hour: Faker::Number.between(from: 20.0, to: 150.0).round(2),
+    service_hours: rand(1..80),
     remote: Faker::Boolean.boolean,
-    user_id: user_translator.id
+    user: user_client
   )
-  services.save!
+  offer.save!
 
   job = Job.new(
-    user_id: user_client.id,
-    offer_id: services.id,
+    user: user_client,
+    offer: offer,
     date: Faker::Date.in_date_period,
-    final_cost: Faker::Number.decimal(l_digits: 2)
+    final_cost: offer.price_per_hour * offer.service_hours
   )
   job.save!
 end
