@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
     super
     if resource.active == false
       sign_out(resource)
-      flash[:notice] = "That user not found!"
+      flash[:notice] = "User not found!"
     end
   end
 
