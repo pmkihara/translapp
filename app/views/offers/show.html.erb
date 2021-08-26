@@ -1,140 +1,29 @@
-<table class="row justify-content-center" bgcolor="#e8e8e8">
-  <tr class="col-12 col-lg-6">
-    <td class="mobile-no-padding" style="padding-top: 20px; padding-right: 20px; padding-left: 20px;">
-      <table  align="center" width="600" border="0" cellspacing="0" cellpadding="0">
-        <tbody>
-          <tr>
-            <td class="mobile-no-radius" style="background-color:#ffffff; border-radius: 15px;">
-              <!-- BLOCK - 1 column / main -->
-              <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-                <tbody>
-                  <tr>
-                    <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
-                      <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
-                        <tbody>
-                          <tr>
-                            <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                              Location: <%= @offer.location %>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                              <%= @offer.original_language %> > <%= @offer.final_language %>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              Price/hour: $ <%= @offer.price_per_hour %>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <!-- end BLOCK - 1 column / main -->
-              <!-- BLOCK - 1 column / second with lifestyle image -->
-              <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="edf3f5">
-                <tbody>
-                  <tr>
-                    <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
-                      <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 540px;">
-                        <tbody>
-                          <tr>
-                            <td style="color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                              Description
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <%= @offer.description ? @offer.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <!-- end BLOCK - 1 column / main -->
-              <!-- BLOCK - block 2 columns / phone -->
-              <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-                <tbody>
-                  <tr>
-                    <td style="padding-top: 30px; padding-bottom: 30px; padding-right: 30px; padding-left: 30px;">
-                      <!--[if mso]>
-                        <table width="265" align="right" border="0" cellpadding="0" cellspacing="0">
-                          <tr>
-                            <td><![endif]-->
-                      <table class="block-2-columns-product" width="100%" align="right" border="0" cellpadding="0" cellspacing="0">
-                        <tbody>
-                        </tbody>
-                      </table>
-                      <!--[if mso]></td>
-                    </tr>
-                  </table>
-                      <![endif]-->
-                      <!--[if mso]>
-                        <table width="265" align="left" border="0" cellpadding="0" cellspacing="0">
-                          <tr>
-                            <td><![endif]-->
-                      <table class="block-2-columns" width="100%" align="left" border="0" cellpadding="0" cellspacing="0">
-                        <tbody>
-                          <tr>
-                            <td style="padding-top: 0px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                              Info
-                            </td>
-                          </tr>
-                          <tr>
-                            <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <% remote_condiction = @offer.remote ? 'Yes' : 'No' %>
-                              Remote: <%= remote_condiction %> /
-                              Status: <%= @offer.status.capitalize %>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <!--[if mso]></td>
-                    </tr>
-                  </table>
-                      <![endif]-->
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <!-- end BLOCK - block 2 columns / phone -->
-              <%= link_to 'Back', offers_path, class: 'btn btn-outline-secondary mb-3 ml-4' %>
-              <%= link_to 'Edit offer', edit_offer_path(@offer), class: 'btn btn-outline-primary mb-3 ml-4' if @offer.user == current_user && @offer.status == "available" %>
-              <%= link_to 'Cancel offer', offer_path(@offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-danger mb-3 ml-4' if @offer.user == current_user && @offer.status == "available" %>
-              <%= link_to 'I want it', offer_jobs_path(@offer), method: :post, class: 'btn btn-outline-success mb-3 ml-4' if @offer.user != current_user && @offer.status == "available" %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- BLOCK - Footer -->
-      <table class="container" align="center" width="600" border="0" cellpadding="0" cellspacing="0">
-        <tbody>
-          <tr>
-            <td style="padding-top: 20px; padding-bottom: 30px; padding-right: 20px; padding-left: 20px;">
-              <table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 560px;">
-                <tbody>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </td>
-  </tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-<!-- end ENCAPSULATION -->
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8 px-4 py-5 show-card">
+      <div class="show-header">
+        <div class="py-4 pr-1">
+          <h5 class="show-subtitle"><%= @offer.remote ? 'Remote' : @offer.location %></h5>
+          <h1><%= @offer.original_language %> > <%= @offer.final_language %></h1>
+          <p>Requested by: <img src="https://source.unsplash.com/featured/?people?<%= @offer.user.id %>" class="avatar avatar-20"> <%= @offer.user.name %></p>
+        </div>
+        <div class="show-side-box w-50 p-4">
+          <p class="mb-1">Suggested price:</p>
+          <h2 class="mb-3">$ <%= @offer.price_per_hour %></h2>
+          <div class="show-reaction-buttons">
+            <%# ---------------------------- OFFER OWNER OPTIONS ---------------------------- %>
+            <%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-outline-yellow' if @offer.user == current_user %>
+            <%= link_to 'Cancel', offer_path(@offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-yellow' if @offer.user == current_user %>
+            <%# ---------------------------- OTHER USERS OPTIONS ---------------------------- %>
+            <%= link_to 'Apply', offer_jobs_path(@offer), method: :post, class: 'btn btn-yellow w-100' unless @offer.user == current_user %>
+          </div>
+        </div>
+      </div>
+      <div class="description my-5">
+        <h2>Description</h2>
+        <p><%= @offer.description ? @offer.description : '' %></p>
+      </div>
+      <%= link_to 'Back', offers_path, class: 'btn btn-outline-secondary' %>
+    </div>
+  </div>
+</div>
