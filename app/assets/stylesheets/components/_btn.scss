@@ -1,8 +1,8 @@
-.btn-outline-yellow {
-  border-color: $yellow;
-  color: $yellow;
+.btn-outline-contrast {
+  border-color: $contrast;
+  color: $contrast;
   &:hover {
-    background-color: $yellow;
+    background-color: $dark-contrast;
   }
 }
 .btn-outline-black {
@@ -10,16 +10,26 @@
   color: $black;
   &:hover {
     background-color: $black;
-    color: $yellow;
+    color: $contrast;
   }
 }
-.btn-yellow {
-  border-color: $yellow;
-  background-color: $yellow;
-  color: $black;
-  opacity: 80%;
+.btn-contrast {
+  border-color: $contrast;
+  background-color: $contrast;
+  opacity: 100%;
+  color: $white;
   &:hover {
-    background-color: $yellow;
-    opacity: 100%;
+    background-color: $dark-contrast;
+    color: $white;
+  }
+}
+.btn-round {
+  border-radius: 20px;
+}
+.btn-outline-white {
+  border-color: $white;
+  color: $white;
+  &:hover {
+    background-color: $white;
   }
 }
