@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2021_08_23_210828) do
     t.string "final_language", null: false
     t.text "description"
     t.float "price_per_hour", default: 0.0, null: false
+    t.integer "service_hours", default: 1, null: false
+    t.string "date", null: false
     t.string "status", default: "available", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

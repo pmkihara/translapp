@@ -16,7 +16,7 @@
 }
 .show-subtitle {
   font-weight: bolder;
-  color: $yellow;
+  color: $contrast;
 }
 .show-side-box {
   width: 180px;
@@ -24,5 +24,11 @@
   border-radius: 4px;
   h2 {
     font-size: 24px;
+  }
+}
+.show-details {
+  margin-bottom: 16px;
+  p{
+    margin: 0;
   }
 }

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions' }
 
-  resources :users do
+  resources :users, only: %i[destroy] do
     resources :jobs, only: %i[index show]
     patch 'jobs/:id', to: 'jobs#mark_as_done', as: "mark_done"
     delete 'jobs/:id', to: 'jobs#mark_as_canceled', as: "mark_canceled"
