@@ -9,6 +9,8 @@
 puts "Creating!!!!"
 puts "...."
 
+Job.destroy_all
+Offer.destroy_all
 User.destroy_all
 
 user = User.new(
