@@ -1,18 +1,22 @@
 <div class="container my-5">
-  <h1>My requests</h1>
-  <div class="cards mt-4">
-    <% @offers.each do |offer| %>
-      <%= link_to offer_path(offer) do %>
-        <div class="card-product mb-3" style="<%= 'opacity: 0.5;' if offer.status == 'concluded' || offer.status == 'deleted' %>">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-          <h2><%= offer.original_language %> > <%= offer.final_language %></h2>
-          <% if offer.job %>
-            <p>Your translator for this service is <strong><%= offer.job.user.name %></strong>.</p>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <h1>My requests</h1>
+      <div class="cards mt-4">
+        <% @offers.each do |offer| %>
+          <%= link_to offer_path(offer) do %>
+            <div class="card-product mb-3" style="<%= 'opacity: 0.5;' if offer.status == 'concluded' || offer.status == 'deleted' %>">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2><%= offer.original_language %> > <%= offer.final_language %></h2>
+                <% if offer.job %>
+                  <p>Your translator for this service is <strong><%= offer.job.user.name %></strong>.</p>
+                <% end %>
+              </div>
+            </div>
           <% end %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,16 +1,20 @@
 <div class="container my-5">
-  <h1>My jobs</h1>
-  <div class="cards mt-4">
-    <% @jobs.each do |job| %>
-      <%= link_to user_job_path(current_user, job) do %>
-        <div class="card-product mb-3" style="<%= 'opacity: 0.5;' if job.status != 'accepted' %>">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <h1>My jobs</h1>
+      <div class="cards mt-4">
+        <% @jobs.each do |job| %>
+          <%= link_to user_job_path(current_user, job) do %>
+            <div class="card-product mb-3" style="<%= 'opacity: 0.5;' if job.status != 'accepted' %>">
           <img src="https://source.unsplash.com/featured/?people?<%= job.id %>" />
-          <div class="card-product-infos">
-            <h2><%= job.offer.original_language %> > <%= job.offer.final_language %></h2>
-            <p>Your client for this service is <strong><%= job.offer.user.name %></strong>.</p>
+            <div class="card-product-infos">
+              <h2><%= job.offer.original_language %> > <%= job.offer.final_language %></h2>
+              <p>Your client for this service is <strong><%= job.offer.user.name %></strong>.</p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
+</div>
 </div>
