@@ -50,18 +50,21 @@ user.save
     description: Faker::Lorem.sentence,
     price_per_hour: Faker::Number.between(from: 20.0, to: 150.0).round(2),
     service_hours: rand(1..80),
-    remote: Faker::Boolean.boolean,
+    date: Faker::Date.in_date_period,
+    remote: [true, false].sample,
     user: user_client
   )
   offer.save!
 
   job = Job.new(
-    user: user_client,
+    user: user_translator,
     offer: offer,
-    date: Faker::Date.in_date_period,
+    date: offer.date,
     final_cost: offer.price_per_hour * offer.service_hours
   )
   job.save!
 end
+
+puts "Toma aí teu usuário pra testes '#{User.last.email}' :)"
 
 puts "Finished Seed!!! =)"
