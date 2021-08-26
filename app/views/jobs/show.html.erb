@@ -14,27 +14,27 @@
                         <tbody>
                           <tr>
                             <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                              Order Nº: #<%= @order.id %>
+                              Job Nº: #<%= @job.id %>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top: 0px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                              Date of the service: <%= @order.date %>
+                              Date of the service: <%= @job.date %>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top: 18px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                              Location: <%= @order.translation_service.location %>
+                              Location: <%= @job.translation_service.location %>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                              <%= @order.translation_service.original_language %> > <%= @order.translation_service.final_language %>
+                              <%= @job.translation_service.original_language %> > <%= @job.translation_service.final_language %>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              Price/hour: $ <%= @order.final_cost %>
+                              Price/hour: $ <%= @job.final_cost %>
                             </td>
                           </tr>
                         </tbody>
@@ -58,7 +58,7 @@
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <%= @order.translation_service.description ? @order.translation_service.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                              <%= @job.translation_service.description ? @job.translation_service.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
                             </td>
                           </tr>
                         </tbody>
@@ -102,9 +102,9 @@
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <% remote_condiction = @order.translation_service.remote ? 'Yes' : 'No' %>
+                              <% remote_condiction = @job.translation_service.remote ? 'Yes' : 'No' %>
                               Remote: <%= remote_condiction %> /
-                              Status: <%= @order.status %>
+                              Status: <%= @job.status %>
                             </td>
                           </tr>
                         </tbody>
@@ -118,9 +118,9 @@
                 </tbody>
               </table>
               <!-- end BLOCK - block 2 columns / phone -->
-              <%= link_to 'Back', user_orders_path(current_user), class: 'btn btn-outline-secondary mb-3 ml-4' %>
-              <%= link_to 'Cancel', user_mark_canceled_path(current_user, @order), method: :delete, data: { confirm: "Are you sure you want to remove order nº#{@order.id}?"}, class: 'btn btn-outline-danger mb-3 ml-4' %>
-              <%= link_to 'Confirm', user_mark_done_path(current_user, @order), method: :patch, data: { confirm: "Are you sure you confirm receive of order nº#{@order.id}?"}, class: 'btn btn-outline-success mb-3 ml-4' %>
+              <%= link_to 'Back', user_jobs_path(current_user), class: 'btn btn-outline-secondary mb-3 ml-4' %>
+              <%= link_to 'Cancel', user_mark_canceled_path(current_user, @job), method: :delete, data: { confirm: "Are you sure you want to remove job nº#{@job.id}?"}, class: 'btn btn-outline-danger mb-3 ml-4' if @job.status == "accepted" %>
+              <%= link_to 'Confirm', user_mark_done_path(current_user, @job), method: :patch, data: { confirm: "Are you sure you confirm receive of job nº#{@job.id}?"}, class: 'btn btn-outline-success mb-3 ml-4' if @job.status == "accepted" %>
             </td>
           </tr>
         </tbody>

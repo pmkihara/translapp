@@ -1,0 +1,16 @@
+<div class="container my-5">
+  <h1>My jobs</h1>
+  <div class="cards mt-4">
+    <% @jobs.each do |job| %>
+      <%= link_to user_job_path(current_user, job) do %>
+        <div class="card-product mb-3" style="<%= 'opacity: 0.5;' if job.status != 'accepted' %>">
+          <img src="https://source.unsplash.com/featured/?people?<%= job.id %>" />
+          <div class="card-product-infos">
+            <h2><%= job.translation_service.original_language %> > <%= job.translation_service.final_language %></h2>
+            <p>Your client for this service is <strong><%= job.translation_service.user.name %></strong>.</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

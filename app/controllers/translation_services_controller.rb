@@ -2,7 +2,8 @@ class TranslationServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @translation_services = TranslationService.where(active: true)
+    translation_services = TranslationService.where(status: "available")
+    @translation_services = sort_by_status(translation_services)
   end
 
   def show
@@ -42,10 +43,15 @@ class TranslationServicesController < ApplicationController
     @translation_service = TranslationService.find(params[:id])
 
     if @translation_service.user == current_user
-      @translation_service.active = false
-      @translation_service.save
-      flash[:notice] = "You successfully deleted ❌ the service"
-      redirect_to translation_services_path
+      if @translation_service.job && @translation_service.job.status == "accepted"
+        flash[:notice] = "You don't delete a service accepted! Please talk with your translator!"
+        redirect_to request.referrer
+      else
+        @translation_service.status = "deleted"
+        @translation_service.save
+        flash[:notice] = "You successfully deleted ❌ the service"
+        redirect_to user_my_services_path(current_user)
+      end
     end
   end
 
@@ -62,12 +68,24 @@ class TranslationServicesController < ApplicationController
 
   def translation_service_params
     params.require(:translation_service).permit(:location, :remote, :original_language, :final_language, :description,
-                                                :price_per_hour, :active, :user_id)
+                                                :price_per_hour, :user_id)
   end
 
   def owner?
     user = User.find(params[:user_id])
 
     user == current_user
+  end
+
+  def sort_by_status(translation_services)
+    array_sorted = []
+    translation_services.each do |translation_service|
+      if translation_service.status == "accepted" || translation_service.status == "available"
+        array_sorted.unshift(translation_service)
+      else
+        array_sorted.push(translation_service)
+      end
+    end
+    array_sorted
   end
 end

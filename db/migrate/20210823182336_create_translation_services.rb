@@ -7,7 +7,7 @@ class CreateTranslationServices < ActiveRecord::Migration[6.0]
       t.string :final_language, null: false
       t.text :description
       t.float :price_per_hour, null: false, default: 0.0
-      t.boolean :active, null: false, default: true
+      t.string :status, null: false, default: "available"
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
