@@ -7,15 +7,14 @@
       <%= simple_form_for(@offer) do |f| %>
         <div class="form-inputs">
           <%= f.input :location,
-                input_html: { id: 'city-input' },
-                required: true,
-                autofocus: true %>
+                input_html: { class: 'city-input' },
+                required: true %>
           <%= f.input :remote, as: :boolean %>
           <%= f.input :original_language,
-                input_html: { id: 'original-language-input' },
+                input_html: { class: 'language-input' },
                 required: true %>
           <%= f.input :final_language,
-                input_html: { id: 'final-language-input' },
+                input_html: { class: 'language-input' },
                 required: true %>
           <%= f.input :description,
                 required: true %>
