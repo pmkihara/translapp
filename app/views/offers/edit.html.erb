@@ -1,13 +1,12 @@
 <br>
 <div class="container mb-5">
-  <h3 class="text-center">Add a new translation offer</h3>
+  <h3 class="text-center">Edit the translation offer</h3>
   <br>
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <%= simple_form_for(@translation_service) do |f| %>
+      <%= simple_form_for(@offer) do |f| %>
         <div class="form-inputs">
           <%= f.input :location,
-                input_html: { id: 'city-input' },
                 required: true,
                 autofocus: true %>
           <%= f.input :remote, as: :boolean %>
@@ -21,7 +20,7 @@
                 required: true %>
         </div>
         <div class="form-actions btn btn-primary border-rounder btn-lg btn-block">
-          <%= f.button :submit, "Create translation service" %>
+          <%= f.button :submit, "Edit" %>
         </div>
       <% end %>
     </div>

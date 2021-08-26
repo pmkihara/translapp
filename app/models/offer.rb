@@ -1,4 +1,4 @@
-class TranslationService < ApplicationRecord
+class Offer < ApplicationRecord
   has_one :job
   belongs_to :user
 

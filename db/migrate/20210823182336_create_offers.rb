@@ -1,6 +1,6 @@
-class CreateTranslationServices < ActiveRecord::Migration[6.0]
+class CreateOffers < ActiveRecord::Migration[6.0]
   def change
-    create_table :translation_services do |t|
+    create_table :offers do |t|
       t.text :location
       t.boolean :remote, null: false, default: false
       t.string :original_language, null: false

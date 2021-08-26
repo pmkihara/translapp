@@ -24,12 +24,12 @@
                           </tr>
                           <tr>
                             <td style="padding-top: 18px; color:#001131; font-weight: 500; text-decoration:none; font-size:20px; font-family: 'nokia-pure-headline-light', line-height:28px">
-                              Location: <%= @job.translation_service.location %>
+                              Location: <%= @job.offer.location %>
                             </td>
                           </tr>
                           <tr>
                             <td style="padding-top: 5px; color:#001131; font-weight: 100; text-decoration:none; font-size:36px; font-family: 'nokia-pure-headline-light', line-height:42px">
-                              <%= @job.translation_service.original_language %> > <%= @job.translation_service.final_language %>
+                              <%= @job.offer.original_language %> > <%= @job.offer.final_language %>
                             </td>
                           </tr>
                           <tr>
@@ -58,7 +58,7 @@
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <%= @job.translation_service.description ? @job.translation_service.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
+                              <%= @job.offer.description ? @job.offer.description : '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "' %>
                             </td>
                           </tr>
                         </tbody>
@@ -102,7 +102,7 @@
                           </tr>
                           <tr>
                             <td style="padding-top: 30px; color: #4D5766; font-weight: 200; text-decoration:none; font-size:16px; font-family: 'nokia-pure-text-light', 'Roboto Light', Roboto, Helvetica Neue, Helvetica, sans-serif; line-height:28px">
-                              <% remote_condiction = @job.translation_service.remote ? 'Yes' : 'No' %>
+                              <% remote_condiction = @job.offer.remote ? 'Yes' : 'No' %>
                               Remote: <%= remote_condiction %> /
                               Status: <%= @job.status %>
                             </td>
