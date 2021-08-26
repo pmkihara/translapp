@@ -2,8 +2,14 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    offers = Offer.where(status: "available")
-    @offers = sort_by_status(offers)
+    # offers = Offer.where(status: "available")
+    # @offers = sort_by_status(offers)
+    if params[:query]
+      @offers = Offer.search_by_location_and_language(params[:query])
+    else
+      offers = Offer.where(status: "available")
+      @offers = sort_by_status(offers)
+    end
   end
 
   def show
