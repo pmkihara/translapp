@@ -1,10 +1,28 @@
-<div>
+<div class="container text-center">
+  <div class="column text-center" style="font-size: 32px;">
+    <i class="fas fa-language fa-10x"></i>
+    <div class="banner-text text-center">
+      <h3>Find a translation buddy in your region.</h3>
+      <%= link_to "View all offers", offers_path, class: "btn btn-contrast" %>
+    </div>
+  </div>
 </div>
-<div class="banner column" style="font-size: 32px;">
-  <i class="fas fa-language fa-10x"></i>
-  <div class="banner-text text-center">
-    <h3>Find a translation buddy in your region.</h3>
-    <%= link_to "View all offers", offers_path, class: "btn btn-contrast" %>
+<hr>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <div class="options">
+        <i class="fas fa-language icon"></i>
+        <h4>Tradutor?</h4>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <div class="options">
+        <i class="far fa-comments icon"></i>
+        <h4>Procura um tradutor?</h4>
+      </div>
+    </div>
   </div>
 </div>
 <footer class="flex-col">
