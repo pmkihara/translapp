@@ -28,6 +28,7 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { select2 } from './select2';
+window.$ = $;
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
