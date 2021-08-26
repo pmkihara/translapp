@@ -40,5 +40,15 @@
         <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-danger' %>
       </div>
     </div>
-  </div>
+    <hr>
+    <div class="form-actions mt-4">
+      <%= f.button :submit, "Update", class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+
+  <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= link_to "Cancel my account", user_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+  <%= link_to "Back", :back %>
 </div>
