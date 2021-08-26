@@ -1,6 +1,20 @@
 <div class="container my-5">
   <h1>All offers</h1>
   <div class="row">
+    <div class="col-6">
+      <%= form_tag offers_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find an offer"
+        %>
+    </div>
+    <div class="col-2">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
     <%# -------------------------------- display individual cards -------------------------------- %>
     <%  @offers.each do |offer| %>
       <div class="col-12 col-md-6 col-lg-4">
