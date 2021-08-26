@@ -12,13 +12,13 @@
                 autofocus: true %>
           <%= f.input :remote, as: :boolean %>
           <%= f.input :original_language,
-                input_html: { id: 'city-input' },
+                input_html: { id: 'original-language-input' },
                 required: true %>
           <%= f.input :final_language,
-                input_html: { id: 'city-input' },
+                input_html: { id: 'final-language-input' },
                 required: true %>
           <%= f.input :description,
-                required: false %>
+                required: true %>
           <%= f.input :price_per_hour,
                 required: true %>
         </div>
