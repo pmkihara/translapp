@@ -1,50 +1,4 @@
-.card-trip {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-trip p {
-  font-size: 12px;
-  opacity: 0.7;
-  margin: 0;
-}
-
-.cards a {
-  text-decoration: none !important;
-  color: black;
-}
-
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
-
-.card-image {
-  height: 200px;
-  background-size: cover;
-  padding: 10px;
-  i {
-    font-size: 25px;
-    color: rgb(0, 0, 0);
-  }
-}
+// --------------------- CARD PRODUCT - FOR CARD-LIST VIEW ---------------------
 
 .card-product {
   overflow: hidden;
@@ -77,4 +31,49 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+// ----------------------- CARD OFFER - FOR INDEX VIEWS ------------------------
+
+.card-offer {
+  overflow: hidden;
+  background: $dark-grey;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  color: $white;
+  padding: 16px;
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  p {
+    font-size: 12px;
+    opacity: 0.7;
+    margin: 0;
+  }
+  a {
+    text-decoration: none !important;
+  }
+}
+.card-offer-header {
+  display: flex;
+  justify-content: space-between;
+}
+.card-offer-subtitle {
+  font-weight: bolder;
+  color: $yellow;
+}
+.card-offer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.card-offer-description {
+  height: 40px;
+  p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
