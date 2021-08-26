@@ -7,6 +7,7 @@ const select2 = () => {
 
   $('.city-input').select2({ width: '100%' });
   $('.language-input').select2({ width: '100%' });
+
 }
 
 export { select2 }
