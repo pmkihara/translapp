@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TranslationServiceTest < ActiveSupport::TestCase
+class OfferTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
