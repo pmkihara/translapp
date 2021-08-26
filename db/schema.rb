@@ -15,16 +15,16 @@ ActiveRecord::Schema.define(version: 2021_08_23_210828) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "orders", force: :cascade do |t|
+  create_table "jobs", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "translation_service_id", null: false
-    t.string "status", default: "active", null: false
+    t.string "status", default: "accepted", null: false
     t.string "date", null: false
     t.float "final_cost", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["translation_service_id"], name: "index_orders_on_translation_service_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["translation_service_id"], name: "index_jobs_on_translation_service_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "translation_services", force: :cascade do |t|
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_210828) do
     t.string "final_language", null: false
     t.text "description"
     t.float "price_per_hour", default: 0.0, null: false
-    t.boolean "active", default: true, null: false
+    t.string "status", default: "available", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_08_23_210828) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "orders", "translation_services"
-  add_foreign_key "orders", "users"
+  add_foreign_key "jobs", "translation_services"
+  add_foreign_key "jobs", "users"
   add_foreign_key "translation_services", "users"
 end

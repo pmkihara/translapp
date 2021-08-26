@@ -9,6 +9,15 @@
 puts "Creating!!!!"
 puts "...."
 
+user = User.new(
+  name: 'Pilantra',
+  email: 'p@p.com',
+  password: "123456",
+  password_confirmation: "123456",
+  contact: '9'
+)
+user.save
+
 3.times do
   name_fake = Faker::Name.first_name
   user_translator = User.new(
@@ -41,13 +50,13 @@ puts "...."
   )
   services.save!
 
-  order = Order.new(
+  job = Job.new(
     user_id: user_client.id,
     translation_service_id: services.id,
     date: Faker::Date.in_date_period,
     final_cost: Faker::Number.decimal(l_digits: 2)
   )
-  order.save!
+  job.save!
 end
 
 puts "Finished Seed!!! =)"

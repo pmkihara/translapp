@@ -17,8 +17,8 @@
           <%= image_tag "bars-solid.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "+ New request", new_translation_service_path, class: "dropdown-item" %>
-            <%= link_to "My translation orders", user_orders_path(current_user), class: "dropdown-item" %>
-            <%= link_to "My requests orders", user_my_services_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My jobs", user_jobs_path(current_user), class: "dropdown-item" %>
+            <%= link_to "My requests", user_my_services_path(current_user), class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
