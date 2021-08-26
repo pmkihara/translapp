@@ -1,25 +1,28 @@
 <div class="container my-5">
-  <h1>All requests</h1>
+  <h1>All offers</h1>
   <div class="row">
-    <% @offers.each do |offer| %>
-      <div class="col-4">
+    <%# -------------------------------- display individual cards -------------------------------- %>
+    <%  @offers.each do |offer| %>
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="cards">
-          <div class="card-trip my-3">
-            <%= link_to offer_path(offer) do %>
-              <div class="card-image" style="background-image: url('https://source.unsplash.com/featured/?people?<%= offer.id %>');height: 200px;background-size: cover;padding: 10px;">
-                <% if offer.remote %>
-                  <i class="fas fa-laptop-house"></i>
-                <% end %>
+          <div class="card-offer my-3">
+            <%# ------------------------------------- header ------------------------------------- %>
+            <div class="card-offer-header mb-3">
+              <div class="card-offer-text">
+                <p class="card-offer-subtitle"><%= offer.remote ? 'Remote' : offer.location %></p>
+                <h2><%= offer.original_language %> > <%= offer.final_language %></h2>
               </div>
-              <div class="card-trip-infos">
-                <div>
-                  <h2><%= offer.original_language %> > <%= offer.final_language %></h2>
-                  <p><%= offer.description %></p>
-                </div>
-                <h2 class="card-trip-pricing">$<%= offer.price_per_hour %></h2>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              </div>
-            <% end %>
+              <img src="https://source.unsplash.com/featured/?people?<%= offer.user.id %>" class="avatar avatar-40 avatar-shadow" />
+            </div>
+            <%# ---------------------------------- description ----------------------------------- %>
+            <div class="card-offer-description my-3">
+              <p><%= offer.description %></p>
+            </div>
+            <%# ------------------------------------- footer ------------------------------------- %>
+            <div class="card-offer-footer">
+              <h2>$<%= offer.price_per_hour %></h2>
+              <%= link_to 'Details', offer_path(offer), class: 'btn btn-outline-yellow' %>
+            </div>
           </div>
         </div>
       </div>
