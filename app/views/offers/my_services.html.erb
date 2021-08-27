@@ -1,18 +1,19 @@
 <div class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+    <div class="col-12 col-lg-8 p-4 pr-1">
       <h1>My offers</h1>
 
       <div class="cards mt-4">
         <% @offers.each do |offer| %>
-          <div class="card-list mb-3">
+          <div class="card-list mb-3 pl-2">
+
             <div class="card-list-status">
               <% if offer.status == 'available' %>
                 <div class="card-list-status card-list-status-available">
                   <i class="fas fa-calendar"></i>
                 </div>
               <% elsif offer.status == 'accepted' %>
-                <div class="card-list-status card-list-accepted">
+                <div class="card-list-status card-list-status-accepted">
                   <i class="fas fa-calendar-alt"></i>
                 </div>
               <% elsif offer.status == 'concluded' %>
@@ -26,8 +27,17 @@
               <% end %>
             </div>
             <div class="card-list-description p-2">
-              <p class="card-list-subtitle m-0 p0"><%= offer.remote ? 'Remote' : offer.location %></p>
-              <h2 class="m0 p0"><%= offer.original_language %> > <%= offer.final_language %></h2>
+              <div class="card-list-header">
+                <div class="card-list-header-text">
+                  <p class="card-list-subtitle m-0 p0"><%= offer.remote ? 'Remote' : offer.location %></p>
+                  <h2 class="m0 p0"><%= offer.original_language %> > <%= offer.final_language %></h2>
+                </div>
+                <div class="card-list-actions">
+                  <%= link_to '', edit_offer_path(offer), class: 'fas fa-pen' %>
+                  <%= link_to '', offer_path(offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'fas fa-trash' %>
+                </div>
+              </div>
+
               <% if offer.status == 'accepted' || offer.status == 'concluded' %>
                 <p class="m0 p0"><%= offer.job.user.name %></p>
                 <h4 class="m0 p0">Final cost: $ <%= offer.job.final_cost %></h4>
@@ -36,10 +46,7 @@
               <% end %>
               <%= link_to 'Details', offer_path(offer), class: 'btn btn-outline-contrast' %>
             </div>
-            <div class="card-list-actions">
-              <%= link_to 'Edit', edit_offer_path(offer), class: 'btn btn-outline-contrast' %>
-              <%= link_to 'Cancel', offer_path(offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-contrast' %>
-            </div>
+
           </div>
         <% end %>
       </div>
