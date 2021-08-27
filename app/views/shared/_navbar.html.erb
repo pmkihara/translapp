@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-lewagon sticky-top">
+<div class="navbar navbar-expand-sm navbar-lewagon <%= params[:action] == 'home' ? "navbar-transparent" : "navbar-visible" %> sticky-top">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "new_logo.png" %>
   <% end %>
@@ -8,9 +8,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto align-items-center">
       <% if user_signed_in? %>
-      <%# ------------------------------------- Navbar if the user has logged in ------------------------------------ %>
+        <%# ------------------------------------- Navbar if the user has logged in ------------------------------------ %>
         <li class="nav-item">
-          <%= link_to "Available offers", offers_path, class: "btn btn-outline-white navbar-btn mr-4" %>
+          <%= link_to "Available offers", offers_path, class: "btn btn-outline-white navbar-btn mr-4 link shrink-on-hover" %>
         </li>
         <%# ---------------------- Dropdown menu ----------------------%>
         <li class="nav-item dropdown navbar-icon m-0 p-1">
@@ -25,12 +25,12 @@
           </div>
         </li>
       <% else %>
-      <%# ----------------------------------- Navbar if the user has not logged in ---------------------------------- %>
+        <%# ----------------------------------- Navbar if the user has not logged in ---------------------------------- %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-white ml-4" %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-outline-white ml-4 link shrink-on-hover" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-contrast ml-4" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-contrast ml-4 link shrink-on-hover" %>
         </li>
       <% end %>
     </ul>

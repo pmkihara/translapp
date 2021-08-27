@@ -12,8 +12,8 @@
           <h2 class="mb-3">$ <%= @offer.price_per_hour %></h2>
           <div class="show-reaction-buttons">
             <%# ---------------------------- OFFER OWNER OPTIONS ---------------------------- %>
-            <%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-outline-contrast' if @offer.user == current_user %>
-            <%= link_to 'Cancel', offer_path(@offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-contrast' if @offer.user == current_user %>
+            <%= link_to 'Edit', edit_offer_path(@offer), class: 'btn btn-outline-contrast btn-block' if @offer.user == current_user %>
+            <%= link_to 'Cancel', offer_path(@offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'btn btn-outline-contrast btn-block' if @offer.user == current_user %>
             <%# ---------------------------- OTHER USERS OPTIONS ---------------------------- %>
             <%= link_to 'Apply', offer_jobs_path(@offer), method: :post, class: 'btn btn-contrast w-100' unless @offer.user == current_user %>
           </div>
