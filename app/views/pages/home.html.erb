@@ -25,13 +25,23 @@
     </div>
   </div>
 </div>
-
-<footer class="flex-col">
-  <div class="social-links-container bg-secondary">
-    <div class="wrapper flex-col center">
-      <div class="copyright-container">
-        <p> Copyright &copy; 2021 TranslApp, Inc. All rights reserved</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <div class="options">
+        <i class="fas fa-language icon"></i>
+        <h4>Tradutor?</h4>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-contrast" %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <div class="options">
+        <i class="far fa-comments icon"></i>
+        <h4>Procura um tradutor?</h4>
+        <%= link_to "Find Here", offers_path, class: "btn btn-contrast" %>
       </div>
     </div>
   </div>
-</footer>
+</div>
+<%= render 'shared/footer' %>
+
