@@ -29,6 +29,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { select2 } from './select2';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { loadDynamicBannerText } from '../components/banner';
 window.$ = $;
 
 document.addEventListener('turbolinks:load', () => {
@@ -36,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   select2();
   initUpdateNavbarOnScroll();
+  loadDynamicBannerText();
 });
