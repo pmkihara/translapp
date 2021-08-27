@@ -2,11 +2,9 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8 p-4 pr-1">
       <h1>My offers</h1>
-
       <div class="cards mt-4">
         <% @offers.each do |offer| %>
           <div class="card-list mb-3 pl-2">
-
             <div class="card-list-status">
               <% if offer.status == 'available' %>
                 <div class="card-list-status card-list-status-available">
@@ -26,7 +24,7 @@
                 </div>
               <% end %>
             </div>
-            <div class="card-list-description p-2">
+            <div class="card-list-description p-3">
               <div class="card-list-header">
                 <div class="card-list-header-text">
                   <p class="card-list-subtitle m-0 p0"><%= offer.remote ? 'Remote' : offer.location %></p>
@@ -37,16 +35,16 @@
                   <%= link_to '', offer_path(offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'fas fa-trash' %>
                 </div>
               </div>
-
               <% if offer.status == 'accepted' || offer.status == 'concluded' %>
                 <p class="m0 p0"><%= offer.job.user.name %></p>
                 <h4 class="m0 p0">Final cost: $ <%= offer.job.final_cost %></h4>
               <% else %>
                 <h4 class="m0 p0">$<%= '%.2f' % offer.price_per_hour %> per hour</h4>
               <% end %>
-              <%= link_to 'Details', offer_path(offer), class: 'btn btn-outline-contrast' %>
+              <div class="float-right">
+                <%= link_to 'Details', offer_path(offer), class: 'btn btn-outline-contrast' %>
+              </div>
             </div>
-
           </div>
         <% end %>
       </div>
