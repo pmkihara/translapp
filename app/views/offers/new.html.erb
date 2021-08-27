@@ -5,35 +5,7 @@
     <div class="col-12 col-lg-6 show-card p-4 pr-1">
       <h3 class="text-center">Add a new translation offer</h3>
       <br>
-      <%= simple_form_for(@offer) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :location,
-                input_html: { class: 'city-input' },
-                required: true, collection: ["Amsterdam","Bali","Barcelona","Belo Horizonte","Berlin","Bordeaux","Brussels","Buenos Aires","Casablanca","Chengdu","Copenhagen","Kyoto","Lausanne","Lille","Lisbon","London","Lyon","Madrid","Marseille","Melbourne","Mexico","Milan","Montréal","Nantes","Oslo","Paris","Rio de Janeiro","Rennes","Rome","São Paulo","Seoul","Shanghai","Shenzhen","Singapore","Stockholm","Tel Aviv","Tokyo"] %>
-          <%= f.input :remote, as: :boolean %>
-          <%= f.input :original_language,
-                input_html: { class: 'language-input' },
-                required: true, collection: ['Abkhazian','Afar','Afrikaans','Akan','Albanian','Amharic','Arabic','Aragonese','Armenian','Assamese','Avaric','Avestan','Aymara','Azerbaijani','Bambara','Bashkir','Basque','Belarusian','Bengali','Bislama','Bosnian','Breton' ,'Bulgarian','Burmese','Catalan', 'Valencian','Central Khmer','Chamorro','Chechen','Chichewa','Chinese','Chuvash','Cornish','Corsican','Cree','Croatian','Czech','Danish','Divehi', 'Dhivehi', 'Maldivian','Dutch','Dzongkha','English','Esperanto','Estonian','Ewe','Faroese','Fijian','Finnish','French','Fulah','Gaelic','Galician','Ganda','Georgian','German', 'Gikuyu','Greek','Greenlandic','Guarani','Gujarati','Haitian','Hausa','Hebrew','Herero','Hindi','Hiri Motu','Hungarian','Icelandic','Ido','Igbo','Indonesian','Interlingua','Interlingue','Inuktitut','Inupiaq','Irish','Italian','Japanese','Javanese','Kannada','Kanuri','Kashmiri','Kazakh','Kinyarwanda','Komi','Kongo','Korean','Kwanyama', 'Kuanyama','Kurdish','Kyrgyz','Lao','Latin','Latvian','Luxembourgish','Limburgish','Lingala','Lithuanian','Luba-Katanga','Macedonian','Malagasy','Malay','Malayalam','Maltese','Manx','Marathi','Marshallese','Moldovan', 'Moldavian', 'Romanian','Mongolian','Nauru','Navajo', 'Navaho','Northern Ndebele','Ndonga','Nepali','Northern Sami','Norwegian','Nuosu', 'Sichuan Yi','Occitan','Ojibwa','Oriya','Oromo','Ossetian', 'Ossetic','Pali','Panjabi', 'Punjabi','Pashto', 'Pushto','Persian','Polish','Portuguese','Quechua','Romansh','Rundi','Russian','Samoan','Sango','Sanskrit','Sardinian','Serbian','Shona','Sindhi','Sinhala', 'Sinhalese','Slovak','Slovenian','Somali','Sotho','South Ndebele','Spanish','Sundanese','Swahili','Swati','Swedish','Tagalog','Tahitian','Tajik','Tamil','Tatar','Telugu','Thai','Tibetan','Tigrinya','Tonga','Tsonga','Tswana','Turkish','Turkmen','Twi','Uighur', 'Uyghur','Ukrainian','Urdu','Uzbek','Venda','Vietse','Volap_k','Walloon','Welsh','Western Frisian', 'Wolof','Xhosa','Yiddish','Yoruba','Zhuang', 'Chuang','Zulu'] %>
-          <%= f.input :final_language,
-                input_html: { class: 'language-input' },
-                required: true, collection: ['Abkhazian','Afar','Afrikaans','Akan','Albanian','Amharic','Arabic','Aragonese','Armenian','Assamese','Avaric','Avestan','Aymara','Azerbaijani','Bambara','Bashkir','Basque','Belarusian','Bengali','Bislama','Bosnian','Breton' ,'Bulgarian','Burmese','Catalan', 'Valencian','Central Khmer','Chamorro','Chechen','Chichewa','Chinese','Chuvash','Cornish','Corsican','Cree','Croatian','Czech','Danish','Divehi', 'Dhivehi', 'Maldivian','Dutch','Dzongkha','English','Esperanto','Estonian','Ewe','Faroese','Fijian','Finnish','French','Fulah','Gaelic','Galician','Ganda','Georgian','German', 'Gikuyu','Greek','Greenlandic','Guarani','Gujarati','Haitian','Hausa','Hebrew','Herero','Hindi','Hiri Motu','Hungarian','Icelandic','Ido','Igbo','Indonesian','Interlingua','Interlingue','Inuktitut','Inupiaq','Irish','Italian','Japanese','Javanese','Kannada','Kanuri','Kashmiri','Kazakh','Kinyarwanda','Komi','Kongo','Korean','Kwanyama', 'Kuanyama','Kurdish','Kyrgyz','Lao','Latin','Latvian','Luxembourgish','Limburgish','Lingala','Lithuanian','Luba-Katanga','Macedonian','Malagasy','Malay','Malayalam','Maltese','Manx','Marathi','Marshallese','Moldovan', 'Moldavian', 'Romanian','Mongolian','Nauru','Navajo', 'Navaho','Northern Ndebele','Ndonga','Nepali','Northern Sami','Norwegian','Nuosu', 'Sichuan Yi','Occitan','Ojibwa','Oriya','Oromo','Ossetian', 'Ossetic','Pali','Panjabi', 'Punjabi','Pashto', 'Pushto','Persian','Polish','Portuguese','Quechua','Romansh','Rundi','Russian','Samoan','Sango','Sanskrit','Sardinian','Serbian','Shona','Sindhi','Sinhala', 'Sinhalese','Slovak','Slovenian','Somali','Sotho','South Ndebele','Spanish','Sundanese','Swahili','Swati','Swedish','Tagalog','Tahitian','Tajik','Tamil','Tatar','Telugu','Thai','Tibetan','Tigrinya','Tonga','Tsonga','Tswana','Turkish','Turkmen','Twi','Uighur', 'Uyghur','Ukrainian','Urdu','Uzbek','Venda','Vietse','Volap_k','Walloon','Welsh','Western Frisian', 'Wolof','Xhosa','Yiddish','Yoruba','Zhuang', 'Chuang','Zulu'] %>
-          <%= f.input :description,
-                required: true %>
-          <%= f.input :price_per_hour,
-                required: true %>
-          <%= f.input :service_hours,
-                required: true %>
-          <%= f.input :date,
-                required: true %>
-        </div>
-        <hr>
-        <div class="form-actions btn btn-primary show-reaction-button btn btn-contrast w-100 border-rounder btn-lg btn-block">
-          <%= f.button :submit, "Create translation service" %>
-        </div>
-        <div class=" btn btn-outline-secondary show-reaction-button border-rounder btn-lg btn-block">
-          <%= link_to "Back", :back %>
-        </div>
-      <% end %>
+      <%= render 'form', offer: @offer %>
     </div>
   </div>
 </div>

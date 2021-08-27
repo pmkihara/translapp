@@ -29,18 +29,16 @@
                   input_html: { autocomplete: "current-password" } %>
           </div>
           <hr>
-          <div class="form-actions mt-4">
-            <%= f.button :submit, "Update", class: "btn btn-primary btn-block show-reaction-button btn btn-contrast w-100" %>
-          </div>
+          <%= f.button :submit, "Update", class: "form-actions mt-4 btn btn-block btn-contrast w-100" %>
         <% end %>
         <br>
         <br>
-        <div class="show-card p-4 pr-1">
+        <div class="show-card">
           <div class="container text-center">
             <h3>Cancel my account</h3>
             <p>Are you unhappy <%= resource_name.to_s.humanize %>?</p>
-            <%= link_to "Back", :back, class: 'btn btn-outline-secondary' %>
-            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-danger' %>
+            <%= link_to "Back", :back, class: 'btn btn-block btn-outline-white w-100' %>
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-block btn-danger w-100' %>
           </div>
         </div>
       </div>
