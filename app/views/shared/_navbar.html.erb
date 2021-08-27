@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-lewagon sticky-top">
+<div class="navbar navbar-expand-sm navbar-lewagon <%= params[:action] == 'home' ? "navbar-transparent" : "navbar-visible" %> sticky-top">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "new_logo.png" %>
   <% end %>
