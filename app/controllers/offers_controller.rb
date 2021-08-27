@@ -2,12 +2,11 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    if params[:query] && params[:query] != ""
-      @offers = Offer.search_by_location_and_language(params[:query])
-    else
-      offers = Offer.where(status: "available")
-      @offers = sort_by_status(offers)
-    end
+    @offers = if params[:query] && params[:query] != ""
+                Offer.search_by_location_and_language(params[:query])
+              else
+                Offer.where(status: "available")
+              end
   end
 
   def show
@@ -60,7 +59,8 @@ class OffersController < ApplicationController
 
   def my_services
     if owner?
-      @offers = Offer.where(user_id: params[:user_id])
+      offers = Offer.where(user_id: params[:user_id])
+      @offers = sort_by_status(offers)
     else
       redirect_to root_path
       flash[:notice] = "Seu pilantra"
