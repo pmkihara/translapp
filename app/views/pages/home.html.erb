@@ -1,19 +1,32 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('joshua-unsplash.jpg') %>);">
-  <div class="banner-text">
-    <h1>TranslApp</h1>
-    <p>Find a translation buddy in your region.</p>
-    <%= link_to "View all offers", offers_path, class: "btn btn-primary" %>
+<div class="container text-center">
+  <div class="column text-center" style="font-size: 32px;">
+    <i class="fas fa-language fa-10x"></i>
+    <div class="text-center">
+      <h3>Find a translation buddy in your region.</h3>
+      <%= link_to "View all offers", offers_path, class: "btn btn-contrast" %>
+    </div>
   </div>
 </div>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('banner.jpg') %>);">
-  <div class="banner-text">
-    <h1>TranslApp</h1>
-    <p>Find a translation buddy in your region.</p>
-    <%= link_to "View all offers", offers_path, class: "btn btn-primary" %>
+<hr>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <div class="options">
+        <i class="fas fa-language icon"></i>
+        <h4>Tradutor?</h4>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-contrast" %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <div class="options">
+        <i class="far fa-comments icon"></i>
+        <h4>Procura um tradutor?</h4>
+        <%= link_to "Find Here", offers_path, class: "btn btn-contrast" %>
+      </div>
+    </div>
   </div>
 </div>
-
 <footer class="flex-col">
   <div class="social-links-container bg-secondary">
     <div class="wrapper flex-col center">
