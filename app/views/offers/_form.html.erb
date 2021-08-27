@@ -13,13 +13,16 @@
     <%= f.input :description,
           required: true %>
     <%= f.input :price_per_hour,
+          input_html: { class: "form-control-sm rounded" },
           required: true %>
     <%= f.input :service_hours,
+          input_html: { class: "form-control-sm rounded" },
           required: true %>
     <%= f.input :date,
+          input_html: { class: "form-control-sm rounded" },
           required: true %>
   </div>
   <hr>
-  <%= f.button :submit, class: "form-actions btn btn-lg btn-block btn-contrast w-100" %>
-  <%= link_to "Back", :back, class: "btn btn-lg btn-block btn-outline-white w-100" %>
+  <%= f.button :submit, class: "form-actions btn btn-block btn-contrast w-100" %>
+  <%= link_to "Back", :back, class: "btn btn-block btn-outline-white w-100" %>
 <% end %>

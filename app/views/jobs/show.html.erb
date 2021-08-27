@@ -5,21 +5,23 @@
         <div class="py-4 pr-1">
           <h5 class="show-subtitle"><%= @job.offer.remote ? 'Remote' : @job.offer.location %></h5>
           <h1><%= @job.offer.original_language %> > <%= @job.offer.final_language %></h1>
-          <p>Requested by: <img src="https://source.unsplash.com/featured/?people?<%= @job.offer.user.id %>" class="avatar avatar-20"> <%= @job.offer.user.name %></p>
+          <div class="show-contact">Requested by: <img src="https://source.unsplash.com/featured/?people?<%= @job.offer.user.id %>" class="avatar avatar-20"> <%= @job.offer.user.name %></div>
+          <div class="show-contact">Contact: <%= @job.offer.user.contact %></div>
+          <br>
           <div class="show-details">
             <p>Job Nº: #<%= @job.id %></p>
             <p>Date of the service: <%= @job.date %></p>
           </div>
         </div>
-        <div class="show-side-box w-50 p-4">
+        <div class="show-side-box w-50 h-50 p-4">
           <div class="show-side-text">
             <p class="mb-1">Final cost:</p>
             <h2 class="mb-3">$ <%= @job.final_cost %></h2>
           </div>
           <div class="show-reaction-buttons">
             <%# ---------------------------- TRANSLATOR OPTIONS ---------------------------- %>
-            <%= link_to 'Mark as done', user_mark_done_path(current_user, @job), method: :patch, data: { confirm: "Are you sure you confirm receive of job nº#{@job.id}?"}, class: 'btn btn-contrast' if @job.status == "accepted" %>
-            <%= link_to 'Cancel', user_mark_canceled_path(current_user, @job), method: :delete, data: { confirm: "Are you sure you want to remove job nº#{@job.id}?"}, class: 'btn btn-outline-contrast' if @job.status == "accepted" %>
+            <%= link_to 'Mark as done', user_mark_done_path(current_user, @job), method: :patch, data: { confirm: "Are you sure you confirm receive of job nº#{@job.id}?"}, class: 'btn btn-contrast btn-block' if @job.status == "accepted" %>
+            <%= link_to 'Cancel', user_mark_canceled_path(current_user, @job), method: :delete, data: { confirm: "Are you sure you want to remove job nº#{@job.id}?"}, class: 'btn btn-outline-contrast btn-block' if @job.status == "accepted" %>
           </div>
         </div>
       </div>
@@ -27,7 +29,7 @@
         <h2>Description</h2>
         <p><%= @job.offer.description ? @job.offer.description : '' %></p>
       </div>
-        <%= link_to 'Back', user_jobs_path(current_user), class: 'btn btn-outline-secondary' %>
+      <%= link_to 'Back', user_jobs_path(current_user), class: 'btn btn-outline-secondary' %>
     </div>
   </div>
 </div>
