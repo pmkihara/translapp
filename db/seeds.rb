@@ -48,14 +48,12 @@ felipe = User.new(
 felipe.save
 
 users = [paty, igor, bruno, felipe].cycle
-fake_languages = %w[Dothraki Valyrian Quenya Sindarin Klingon Vulcan Atlantean Alienese Na’vi Huttese Lapine Barsoomian Nadsat Newspeak Kryptonian].cycle
-fake_countries = %w[Wakanda Freedonia Florin Zubrowka Gilead Aldovia Themyscira Panem Zamunda Westeros Marley Paradis]
 
 6.times do
   offer = Offer.new(
-    location: fake_countries.sample,
-    original_language: fake_languages.next,
-    final_language: fake_languages.next,
+    location: Faker::Address.city,
+    original_language: Faker::Nation.language,
+    final_language: Faker::Nation.language,
     price_per_hour: Faker::Number.between(from: 5, to: 50).round(2),
     service_hours: rand(1..10),
     date: Faker::Date.in_date_period,
