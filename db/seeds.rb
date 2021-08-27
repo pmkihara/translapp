@@ -9,62 +9,69 @@
 puts "Creating!!!!"
 puts "...."
 
-Job.destroy_all
-Offer.destroy_all
-User.destroy_all
+User.destroy_all if Rails.env.development?
 
-user = User.new(
-  name: 'Pilantra',
-  email: 'p@p.com',
+paty = User.new(
+  name: 'Patrícia',
+  email: 'paty@paty.com',
   password: "123456",
   password_confirmation: "123456",
-  contact: '9'
+  contact: '99999-9999'
 )
-user.save
+paty.save
+
+igor = User.new(
+  name: 'Igor',
+  email: 'igor@igor.com',
+  password: "123456",
+  password_confirmation: "123456",
+  contact: '99999-9999'
+)
+igor.save
+
+bruno = User.new(
+  name: 'Bruno',
+  email: 'bruno@bruno.com',
+  password: "123456",
+  password_confirmation: "123456",
+  contact: '99999-9999'
+)
+bruno.save
+
+felipe = User.new(
+  name: 'Felipe',
+  email: 'felipe@felipe.com',
+  password: "123456",
+  password_confirmation: "123456",
+  contact: '99999-9999'
+)
+felipe.save
+
+users = [paty, igor, bruno, felipe].cycle
+fake_languages = %w[Dothraki Valyrian Quenya Sindarin Klingon Vulcan Atlantean Alienese Na’vi Huttese Lapine Barsoomian Nadsat Newspeak Kryptonian].cycle
+fake_countries = %w[Wakanda Freedonia Florin Zubrowka Gilead Aldovia Themyscira Panem Zamunda Westeros Marley Paradis]
 
 6.times do
-  name_fake = Faker::Name.first_name
-  user_translator = User.new(
-    { name: name_fake,
-      email: Faker::Internet.free_email(name: name_fake),
-      password: "123456",
-      password_confirmation: "123456",
-      contact: Faker::PhoneNumber.cell_phone }
-  )
-  user_translator.save!
-
-  name_fake = Faker::Name.first_name
-  user_client = User.new(
-    { name: name_fake,
-      email: Faker::Internet.free_email(name: name_fake),
-      password: "123456",
-      password_confirmation: "123456",
-      contact: Faker::PhoneNumber.cell_phone }
-  )
-  user_client.save!
-
   offer = Offer.new(
-    location: Faker::Address.country,
-    original_language: Faker::Nation.language,
-    final_language: Faker::Nation.language,
-    description: Faker::Lorem.sentence,
-    price_per_hour: Faker::Number.between(from: 20.0, to: 150.0).round(2),
-    service_hours: rand(1..80),
+    location: fake_countries.sample,
+    original_language: fake_languages.next,
+    final_language: fake_languages.next,
+    price_per_hour: Faker::Number.between(from: 5, to: 50).round(2),
+    service_hours: rand(1..10),
     date: Faker::Date.in_date_period,
     remote: [true, false].sample,
-    user: user_client
+    user: users.next
   )
-  offer.save!
+  offer.description = "I need a #{offer.original_language} to #{offer.final_language} translator on #{offer.date}. I need it for #{offer.service_hours} hours and I'm willing to pay up to $#{offer.price_per_hour} an hour."
+  offer.save
 
   job = Job.new(
-    user: user_translator,
+    user: users.next,
     offer: offer,
     date: offer.date,
     final_cost: offer.price_per_hour * offer.service_hours
   )
-  job.save!
+  job.save
 end
-
-puts "Toma aí teu usuário pra testes '#{User.last.email}' :)"
 
 puts "Finished Seed!!! =)"
