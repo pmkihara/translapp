@@ -19,3 +19,27 @@
   font-size: 50px;
   color: $contrast;
 }
+
+.quote {
+  margin: 80px;
+}
+
+.four-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 15px;
+  height: 300px;
+  background-color: $dark-grey;
+}
+
+.font-quote {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: $white;
+}
+
+.four-cards-content {
+
+}
