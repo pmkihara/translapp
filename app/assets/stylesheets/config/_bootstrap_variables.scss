@@ -26,3 +26,6 @@ $border-radius-sm: 2px;
 .form-control:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 76, 41, 0.25) !important;
 }
+.dropdown-item.active, .dropdown-item:active {
+  background-color: $contrast !important;
+}
