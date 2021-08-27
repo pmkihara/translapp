@@ -16,12 +16,10 @@
           <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
         <hr>
-        <div class="form-actions mt-4">
-          <%= f.button :submit, "Log in", class: "btn btn-primary btn-block show-reaction-button btn btn-contrast w-100" %>
-        </div>
+        <%= f.button :submit, "Log in", class: "form-actions mt-4 btn btn-block btn-contrast w-100" %>
         <br>
         <div>
-          <%= link_to "Back", :back, class: 'btn btn-outline-white btn-block' %>
+          <%= link_to "Back", :back, class: 'btn btn-block btn-outline-white w-100' %>
         </div>
       <% end %>
     </div>

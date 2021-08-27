@@ -28,13 +28,9 @@
                 input_html: { autocomplete: "new-password" } %>
         </div>
         <hr>
-        <div class="form-actions mt-4">
-          <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block show-reaction-button btn btn-contrast w-100" %>
-        </div>
+        <%= f.button :submit, "Sign up", class: "form-actions mt-4 btn btn-block btn-contrast w-100" %>
         <br>
-        <div>
-          <%= link_to "Back", :back, class: 'btn btn-outline-white btn-block' %>
-        </div>
+        <%= link_to "Back", :back, class: 'btn btn-block btn-outline-white w-100' %>
       <% end %>
     </div>
   </div>
