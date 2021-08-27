@@ -3,48 +3,49 @@
     <div class="col-12 col-lg-8 p-4 pr-1">
       <h1>My jobs</h1>
       <% @jobs.each do |job| %>
-          <div class="card-list mb-3 pl-2">
-
-            <div class="card-list-status">
-              <% if job.offer.status == 'available' %>
-                <div class="card-list-status card-list-status-available">
-                  <i class="fas fa-calendar"></i>
-                </div>
-              <% elsif job.offer.status == 'accepted' %>
-                <div class="card-list-status card-list-status-accepted">
-                  <i class="fas fa-calendar-alt"></i>
-                </div>
-              <% elsif job.offer.status == 'concluded' %>
-                <div class="card-list-status card-list-status-concluded">
-                  <i class="fas fa-calendar-check"></i>
-                </div>
-              <% elsif job.offer.status == 'cancelled' %>
-                <div class="card-list-status card-list-status-cancelled">
-                  <i class="fas fa-calendar-times"></i>
-                </div>
-              <% end %>
-            </div>
-            <div class="card-list-description p-2">
-              <div class="card-list-header">
-                <div class="card-list-header-text">
-                  <p class="card-list-subtitle m-0 p0"><%= job.offer.remote ? 'Remote' : job.offer.location %></p>
-                  <h2 class="m0 p0"><%= job.offer.original_language %> > <%= job.offer.final_language %></h2>
-                </div>
-                <div class="card-list-actions">
-                  <%= link_to '', user_mark_done_path(current_user, job), method: :patch, data: { confirm: "Are you sure you confirm receive of job nº#{job.id}?"}, class: 'fas fa-check-square' if job.status == "accepted" %>
-                  <%= link_to '', user_mark_canceled_path(current_user, job), method: :delete, data: { confirm: "Are you sure you want to remove job nº#{job.id}?"}, class: 'fas fa-times' if job.status == "accepted" %>
-                </div>
+        <div class="card-list mb-3 pl-2">
+          <div class="card-list-status">
+            <% if job.offer.status == 'available' %>
+              <div class="card-list-status card-list-status-available">
+                <i class="fas fa-calendar"></i>
               </div>
-              <% if job.offer.status == 'accepted' || job.offer.status == 'concluded' %>
-                <p class="m0 p0"><%= job.offer.job.user.name %></p>
-                <h4 class="m0 p0">Final cost: $ <%= job.offer.job.final_cost %></h4>
-              <% else %>
-                <h4 class="m0 p0">$<%= '%.2f' % job.offer.price_per_hour %> per hour</h4>
-              <% end %>
+            <% elsif job.offer.status == 'accepted' %>
+              <div class="card-list-status card-list-status-accepted">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+            <% elsif job.offer.status == 'concluded' %>
+              <div class="card-list-status card-list-status-concluded">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+            <% elsif job.offer.status == 'cancelled' %>
+              <div class="card-list-status card-list-status-cancelled">
+                <i class="fas fa-calendar-times"></i>
+              </div>
+            <% end %>
+          </div>
+          <div class="card-list-description p-3">
+            <div class="card-list-header">
+              <div class="card-list-header-text">
+                <p class="card-list-subtitle m-0 p0"><%= job.offer.remote ? 'Remote' : job.offer.location %></p>
+                <h2 class="m0 p0"><%= job.offer.original_language %> > <%= job.offer.final_language %></h2>
+              </div>
+              <div class="card-list-actions">
+                <%= link_to '', user_mark_done_path(current_user, job), method: :patch, data: { confirm: "Are you sure you confirm receive of job nº#{job.id}?"}, class: 'fas fa-check-square' if job.status == "accepted" %>
+                <%= link_to '', user_mark_canceled_path(current_user, job), method: :delete, data: { confirm: "Are you sure you want to remove job nº#{job.id}?"}, class: 'fas fa-times' if job.status == "accepted" %>
+              </div>
+            </div>
+            <% if job.offer.status == 'accepted' || job.offer.status == 'concluded' %>
+              <p class="m0 p0"><%= job.offer.job.user.name %></p>
+              <h4 class="m0 p0">Final cost: $ <%= job.offer.job.final_cost %></h4>
+            <% else %>
+              <h4 class="m0 p0">$<%= '%.2f' % job.offer.price_per_hour %> per hour</h4>
+            <% end %>
+            <div class="float-right">
               <%= link_to 'Details', user_job_path(current_user, job), class: 'btn btn-outline-contrast' %>
             </div>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
-</div>
 </div>
