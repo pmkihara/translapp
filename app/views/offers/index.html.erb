@@ -19,23 +19,27 @@
     <%  @offers.each do |offer| %>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="cards">
-          <div class="card-offer my-3">
+          <div class="my-3">
             <%# ------------------------------------- header ------------------------------------- %>
-            <div class="card-offer-header mb-3">
-              <div class="card-offer-text">
-                <p class="card-offer-subtitle"><%= offer.remote ? 'Remote' : offer.location %></p>
-                <h2><%= offer.original_language %> > <%= offer.final_language %></h2>
-              </div>
-              <img src="https://source.unsplash.com/featured/?people?<%= offer.user.id %>" class="avatar avatar-40 avatar-shadow" />
-            </div>
             <%# ---------------------------------- description ----------------------------------- %>
-            <div class="card-offer-description my-3">
-              <p><%= offer.description %></p>
-            </div>
             <%# ------------------------------------- footer ------------------------------------- %>
-            <div class="card-offer-footer">
-              <h2>$<%= '%.2f' % offer.price_per_hour %></h2>
-              <%= link_to 'Details', offer_path(offer), class: 'btn btn-outline-contrast' %>
+          </div>
+          <div class="card">
+            <div class="content">
+              <div class="front">
+                <div class="mt-3 font_front">
+                  <img src="https://source.unsplash.com/featured/?people?<%= offer.user.id %>" class="avatar avatar-40 avatar-shadow mb-3" />
+                  <p class="card-offer-subtitle"><%= offer.remote ? 'Remote' : offer.location %></p>
+                  <p><%= offer.original_language %> > <%= offer.final_language %></p>
+                  <p>$<%= '%.2f' % offer.price_per_hour %></p>
+                </div>
+              </div>
+              <div class="back">
+                <div class="mt-5 font_back">
+                  <p class="mb-5"><%= offer.description %></p>
+                  <%= link_to 'Details', offer_path(offer), class: 'btn btn-outline-contrast mt-4' %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

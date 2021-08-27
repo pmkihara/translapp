@@ -77,3 +77,62 @@
     text-overflow: ellipsis;
   }
 }
+
+// ----------------------- CARD OFFER - Animation ------------------------
+
+body {
+  background: #03446A;
+}
+
+.card {
+  position: absolute;
+  top: 1200%;
+  left: 42%;
+  width: 350px;
+  height: 200px;
+  margin: -150px;
+  float: left;
+  perspective: 500px;
+  background-color: transparent;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg);
+  transition: transform 1.3s;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: $dark-grey;
+  line-height: 20px;
+  color: $white;
+  text-align: center;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  background: $dark-grey;
+  color: $white;
+  transform: rotateY(180deg);
+}
+
+.font_front {
+  font-size: 20px;
+}
+
+.font_back {
+  font-size: 15px;
+}
