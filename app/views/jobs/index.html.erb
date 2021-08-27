@@ -35,8 +35,8 @@
               </div>
             </div>
             <% if job.offer.status == 'accepted' || job.offer.status == 'concluded' %>
-              <p class="m0 p0"><%= job.offer.job.user.name %></p>
-              <h4 class="m0 p0">Final cost: $ <%= job.offer.job.final_cost %></h4>
+              <p class="m0 p0"><%= job.offer.user.name %></p>
+              <h4 class="m0 p0">Final cost: $ <%= job.final_cost %></h4>
             <% else %>
               <h4 class="m0 p0">$<%= '%.2f' % job.offer.price_per_hour %> per hour</h4>
             <% end %>

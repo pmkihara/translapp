@@ -30,10 +30,12 @@
                   <p class="card-list-subtitle m-0 p0"><%= offer.remote ? 'Remote' : offer.location %></p>
                   <h2 class="m0 p0"><%= offer.original_language %> > <%= offer.final_language %></h2>
                 </div>
-                <div class="card-list-actions">
-                  <%= link_to '', edit_offer_path(offer), class: 'fas fa-pen' %>
-                  <%= link_to '', offer_path(offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'fas fa-trash' %>
-                </div>
+                <% if offer.status == "available" || offer.status == "accepted" %>
+                  <div class="card-list-actions">
+                    <%= link_to '', edit_offer_path(offer), class: 'fas fa-pen' %>
+                    <%= link_to '', offer_path(offer), method: :delete, data: { confirm: 'Are you sure you want to cancel it?' }, class: 'fas fa-trash' %>
+                  </div>
+                <% end %>
               </div>
               <% if offer.status == 'accepted' || offer.status == 'concluded' %>
                 <p class="m0 p0"><%= offer.job.user.name %></p>
