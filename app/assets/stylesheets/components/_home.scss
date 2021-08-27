@@ -11,10 +11,44 @@
 
 .show-card {
   padding: 50px;
+  text-align: center;
   border: 1px solid $dark-grey;
 }
 
 .icon {
   font-size: 50px;
   color: $contrast;
+}
+
+.quote {
+  margin: 80px;
+}
+
+.four-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 15px;
+  height: 250px;
+
+}
+
+.font-quote {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: $contrast;
+}
+
+.four-cards-content {
+  text-align: center;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: $dark-grey;
+}
+
+.img-options {
+  font-size: 50px;
+  color: $contrast;
+  margin-bottom: 10px;
 }
