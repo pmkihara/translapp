@@ -1,14 +1,36 @@
-<div class="container text-center">
-  <div class="column text-center" style="font-size: 32px;">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('carbon-fiber.jpg') %>);">
+  <div class="banner-text">
     <i class="fas fa-language fa-10x"></i>
-    <div class="text-center">
-      <h3>Find a translation buddy in your region.</h3>
-      <%= link_to "View all offers", offers_path, class: "btn btn-contrast" %>
-    </div>
+    <h1 class="mb-5">Find a translation buddy in your region.</h1>
+    <%= link_to "View all offers", offers_path, class: "btn btn-contrast btn-lg" %>
   </div>
 </div>
-<hr>
-<hr>
+<div class="container">
+  <%# ---------------------------- OPTION CARDS ----------------------------- %>
+  <div class="row">
+    <div class="col-12 col-sm-6 home-options">
+      <i class="fas fa-language home-icon"></i>
+      <h4>Tradutor?</h4>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-contrast" %>
+    </div>
+    <div class="col-12 col-lg-6 show-card p-4 pr-1">
+      <div class="options">
+        <i class="far fa-comments icon"></i>
+        <h4>Procura um tradutor?</h4>
+        <%= link_to "Find Here", offers_path, class: "btn btn-contrast" %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-6 show-card p-4 pr-1">
