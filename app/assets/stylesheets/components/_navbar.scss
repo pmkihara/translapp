@@ -1,12 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  // background: $dark-grey;
   background-color: transparent;
+  // background: $dark-grey;
   transition: 0.5s background-color ease;
 }
 
-.navbar-lewagon-white {
-  background-color: white;
+.navbar-visible {
+  background: $dark-grey;
 }
 
 .navbar-lewagon .navbar-collapse {
